@@ -1,0 +1,56 @@
+/* ==========================================================================
+   BLOCKQUOTE
+   ========================================================================== */
+
+blockquote {
+    position: relative;
+    padding: 2em 2.5em 2em 3.5em;
+    margin: 40px 0;
+    font-size: clamp(18px, 3vw, 24px);
+    color: #ffffff;
+    background: linear-gradient(90deg, rgba(80, 20, 120, 0.2), transparent);
+    border-left: 4px solid #9E5DFF;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 4px 20px rgba(158, 93, 255, 0.1);
+    &::before { 
+        content: "“";
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        font-size: 80px;
+        line-height: 0.8;
+        color: rgba(158, 93, 255, 0.4);
+    }
+  
+    p {
+        margin: 0 0 0.8em;
+        font-weight: 300;
+        line-height: 1.6;
+        letter-spacing: 0.01em;
+        
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+  
+    cite {
+        display: block;
+        margin-top: 1.2em;
+        font-size: 16px;
+        color: #BBA8FF;
+        font-weight: 500;
+        font-style: normal;
+        
+        &::before {
+            content: "— ";
+            color: rgba(255, 255, 255, 0.6);
+        }
+    }
+    
+    // Add a subtle glow effect on hover
+    &:hover {
+        border-left-color: #BF7FFF;
+        box-shadow: 0 4px 25px rgba(158, 93, 255, 0.18);
+        transition: all 0.3s ease;
+    }
+}

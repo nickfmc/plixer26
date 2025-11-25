@@ -1,0 +1,37 @@
+<form class="c-case-form c-green-submit" onsubmit="name.value = firstName.value +' '+ lastName.value;" id="supportRequestForm" action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">  <input type="hidden" name="orgid" value="00D1U0000012d80">
+    <input type="hidden" name="retURL" value="https://www.plixer.com/thank-you/">
+    <input type="hidden" name="status" value="New">
+    <input type="hidden" name="origin" value="Web">
+    <input type="hidden" name="priority" value="Medium">
+    <input type="hidden" name="reason" value="New Problem">
+    <input type="hidden" id="00N1U00000Qt1PZ" name="00N1U00000Qt1PZ" value="Support">
+    <label for="00N1U00000UlOyV">Customer ID*</label><input id="00N1U00000UlOyV" maxlength="80" name="00N1U00000UlOyV" size="20" type="text" aria-required="true" required=""><br>
+    <label for="firstName">First Name*</label><input id="firstName" maxlength="80" name="firstName" size="20" type="text" aria-required="true" required=""><br>
+    <label for="lastName">Last Name*</label><input id="lastName" maxlength="80" name="lastName" size="20" type="text" aria-required="true" required=""><br>
+    <label for="email">Email*</label><input id="email" maxlength="80" name="email" size="20" type="text" aria-required="true" required=""><br>
+    <label for="company">Company*</label><input id="company" maxlength="80" name="company" size="20" type="text" aria-required="true" required=""><br>
+    <label for="phone">Phone*</label><input id="phone" maxlength="40" name="phone" size="20" type="text" aria-required="true" required=""><br>
+    Products/Services:*<select id="00N1U00000Qt3cl" name="00N1U00000Qt3cl" title="Products/Services">
+        <option value="Plixer Beacon">Plixer Beacon</option>
+        <option value="FlowPro">Plixer FlowPro</option>
+        <option value="Network Intelligence">Plixer Network Intelligence</option>
+        <option value="Replicator">Plixer Replicator</option>
+        <option value="Scrutinizer" selected="">Plixer Scrutinizer</option>
+        <option value="Security Intelligence">Plixer Security Intelligence</option>
+    </select><br>
+Case Severity:<select id="00N1U00000QtKmS" name="00N1U00000QtKmS" title="Case Severity"><option value="Severity 4 - General usage">Severity 4 - General usage</option>
+<option value="Severity 3 - Partial, non-critical loss of functionality">Severity 3 - Partial, non-critical loss of functionality</option>
+<option value="Severity 2 - Partial, critical loss of functionality">Severity 2 - Partial, critical loss of functionality</option>
+<option value="Severity 1 - Production system is down with no workaround immediately available">Severity 1 - Production system is down with no workaround immediately available</option>
+</select><br>
+    <label for="subject">Subject*</label><input id="subject" maxlength="80" name="subject" size="20" type="text" aria-required="true" required=""><br>
+    <label for="description">Description*</label><textarea cols="50" rows="10" maxlength="1000" aria-required="true" name="description" required=""></textarea><br>
+    Preferred Contact Method*<select id="00N1U00000UlOxr" name="00N1U00000UlOxr" title="Preferred Contact Method">
+        <option value="Phone">Phone</option>
+        <option value="Email">Email</option>
+    </select>
+    <input type="hidden" id="external" name="external" value="1">
+    <input type="hidden" name="name"><br>
+    <input type="submit" name="submit">
+    </div>
+</form>

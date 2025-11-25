@@ -1,0 +1,16 @@
+{
+    "name": "glossary",
+    "title": "Glossary",
+    "description": "A fancy glossary block",
+    "icon": "admin-comments",
+    "keywords": ["divider", "fancy"],
+    "category": "myblocks",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "glossary.php"
+    },
+    "example": {
+        "attributes": {}
+    },
+    "align": "full"
+}

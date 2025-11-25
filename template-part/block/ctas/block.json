@@ -1,0 +1,22 @@
+{
+    "name": "hp-ctas",
+    "title": "Custom CTAs",
+    "description": "Custom Call to Actions",
+    "icon": "icon-cta",
+    "keywords": ["cta", "call to action", "call-to-action", "ctas", "call to actions", "call-to-actions", "custom cta", "custom call to action", "custom call-to-action", "custom ctas", "custom call to actions", "custom call-to-actions"],
+    "category": "myblocks",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "cta.php"
+    },
+    "supports": {
+        "align": ["full", "wide"],
+        "html": false,
+        "jsx": true,
+        "innerBlocks": true
+    },
+    "example": {
+        "attributes": {}
+    },
+    "align": "full"
+}

@@ -1,0 +1,53 @@
+/* ==========================================================================
+   MAIN LOGO
+   ========================================================================== */
+
+.c-logo-main {
+  
+  z-index: z(default);
+  & a {
+    display: block;
+    position: absolute;
+  top: 22px;
+  z-index: 10;
+  }
+  & img, & svg {
+    
+    display: block;
+    width: 145px;
+    height: auto;
+    max-height: $page-header-height;
+    @media (width >= $bp-medium) {
+      width: 145px;
+     } 
+  }
+
+  .cls-1 {
+    fill: #fff;
+  }
+}
+
+.c-logo-main-sticky {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.c-logo-main svg .cls-1 {
+  fill: #3E2869;
+}
+// .sticky {
+//   .c-logo-main-sticky {
+//     opacity: 1;
+//     transition: opacity 0.5s ease-in-out;
+//   }
+// }
+
+.c-logo-main-top {
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+
+}
+
+// .sticky .c-logo-main-top {
+//   opacity: 0;
+// }

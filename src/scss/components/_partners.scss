@@ -1,0 +1,19 @@
+.page-template-pg-partners.elementor-page {
+    .editor-content  {
+        padding-left: 25px;
+        padding-right: 25px;
+        .elementor  {
+            > .elementor-section {
+                padding-top: 0;
+            }
+        }
+    } 
+}
+
+.c-partner-title {
+    margin-top: 50px;
+    @media(width >= $bp-medium) {
+        margin-top: 110px;
+    
+    } 
+}

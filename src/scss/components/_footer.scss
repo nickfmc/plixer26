@@ -1,0 +1,427 @@
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.c-page-footer {
+  border-top: 8px solid #1a1a1a;
+  background-color: #000;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 80px;
+  padding-top: 100px;
+  color: #fff;
+  .c-logo-footer  {
+    img {
+      margin-top: 10px;
+      width: 250px;
+      margin-right: auto;
+      margin-left: auto;
+      @media(width >= 980px) {
+        width: 300px;
+      
+      } 
+      @media(width >= 875px) {
+      margin-right: 0;
+      margin-left: 0;
+      
+      } 
+    }
+  }
+  a {
+    color: #fff;
+  }
+}
+
+.c-footer-top {
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+  @media(width >= 875px) {
+  flex-direction: row;
+  padding-bottom: 60px;
+  justify-content: space-between;
+  } 
+}
+
+
+.c-footer-menus {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  text-align: center;
+  @media(width >= 875px) {
+    flex-direction: row;
+  gap: 90px;
+
+    text-align: left;
+  } 
+  .c-footer-nav {
+    li {
+      font-size: 16px;
+      font-weight: 300;
+    }
+    @media(width >= 875px) {
+    li:first-of-type {
+      font-size: 18px;
+      font-weight: 700;
+     }
+    }
+  }
+  div {
+    border-top: 1px dashed rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    &:first-of-type {
+      border-top: 0;
+    }
+    @media(width >= 875px) {
+    border-top: 0;
+    padding: 0;
+    }
+}
+}
+
+
+
+
+.c-lower-footer {
+  padding-top: 45px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.4);
+  color: #fff;
+  display: flex;
+  flex-flow: column-reverse;
+  justify-content: space-between;
+  p {
+    font-size: 13px;
+    line-height: 1.7;
+    text-align: center;
+  }
+  a  {
+    color: #fff;
+  }
+  @media(width >= 875px) {
+  flex-direction: row;
+  padding-top: 97px;
+  p {
+    text-align: left;
+  }
+
+  } 
+}
+
+.c-footer-social {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 40px;
+  gap: 20px;
+  a {
+  color: $color-green;
+  width: 56px;
+  height: 56px;
+  border: 2px solid $color-purple-one;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+ 
+  transition: all .3s ease-in-out !important;
+
+  svg {
+      width: 24px;
+      height: 24px;
+  }
+  &:hover {
+      background-color: $color-purple-one;
+      color: #fff;
+  }
+}
+
+}
+
+.menu-title {
+  display: none;
+  font-size: 18px;
+  font-weight: 700;
+  svg {
+    width: 17px;
+    height: 17px;
+    position: relative;
+    top: 3px;
+    margin-left: 3px;
+  }
+  &.active {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+@media(width <= 875px) {
+  .menu-title {
+display: block;
+  }
+  .c-footer-nav {
+    display: none;
+}
+.c-footer-nav.show {
+    display: block;
+}
+.menu-title {
+    cursor: pointer;
+}
+}
+
+.c-footer-nav {
+  @media(width >= 875px) {
+  display: block !important;
+  } 
+}
+
+
+.c-info-popup-trigger {
+  position: fixed;
+  bottom: 20px;
+  right: 20px; 
+  z-index: 999;
+  background-color: #fff;
+  color: #000;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  svg {
+    width: 30px;
+    height: 30px;
+    path {
+      stroke: $color-purple-darker;
+    }
+  }
+
+}
+
+.c-info-popup {
+  position: fixed;
+  bottom: 106px;
+  right: 20px;
+  z-index: 999;
+  background-color: #fff;
+  color: #000;
+  border-radius: 10px;
+  width: 300px;
+  padding: 20px 25px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  &.is-visible {
+    animation: slideIn 0.3s forwards;
+  }
+
+  &.is-closing {
+    animation: slideOut 0.3s forwards;
+  }
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding: 0 40px 0 0;
+    color: $color-purple-dark;
+  }
+  p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #000;
+  }
+  a {
+    color: $color-purple-darker;
+  }
+}
+
+.c-info-popup-links {
+  p {
+    margin-bottom: 5px;
+  }
+  a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    background-color: $color-purple-dark;
+    color: #fff;
+    padding: 2px 20px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+  }
+}
+
+.c-info-popup-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+
+/* Initial state of the popup (hidden) */
+.c-info-popup {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Visible state of the popup */
+.c-info-popup.is-visible {
+  display: block;
+  opacity: 1;
+}
+
+/* Optional: Style for the close button */
+.c-info-popup-close {
+  cursor: pointer;
+}
+
+/* Fixed Bottom Bar */
+.c-fixed-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: radial-gradient(circle, #A400D8 0%, #2D0072 100%);
+  color: #fff;
+  z-index: 998;
+  padding: 10px 25px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+  
+  @media(width <= 768px) {
+    padding: 15px;
+  }
+
+  .gbp-button--primary {
+    padding: 0.35rem 1.5rem;
+    flex-shrink: 0;
+  }
+}
+
+.c-fixed-bar-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1050px;
+  margin: 0 auto;
+  gap: 20px;
+
+  
+  @media(width <= 768px) {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.c-fixed-bar-text {
+
+  font-size: 22px;
+  color: #fff;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  line-height: 1.2;
+
+  
+  p {
+    margin: 0;
+  }
+  
+  @media(width <= 768px) {
+    text-align: center;
+    font-size: 16px;
+  }
+}
+
+.c-fixed-bar-button {
+  text-transform: uppercase;
+  // background-color: #00890b;
+  // color: #fff;
+  // padding: 0.75rem 1.5rem;
+  // border-radius: 10px;
+  // text-decoration: none;
+  // font-weight: 700;
+  // white-space: nowrap;
+  transition: background-color 0.3s ease;
+  
+  &:hover {
+    background-color: darken(#00890b, 10%);
+  color: #fff;
+
+  }
+}
+
+.c-fixed-bar-close {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 10px;
+  position: absolute;
+  top: -43px;
+  right: 8px;
+  background: #310075;  
+  padding: 13px;
+  border-radius: 8px 8px 0 0;
+  svg {
+    width: 12px;
+    height: 12px;
+    fill: currentColor;
+  }
+  
+  &:hover {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+/* Adjust info popup trigger position when fixed bar is present */
+.c-info-popup-trigger {
+  bottom: 90px; /* Default position adjusted for the fixed bar */
+}
+
+/* Class to reposition the info popup trigger when fixed bar is closed */
+.fixed-bar-closed .c-info-popup-trigger {
+  bottom: 20px;
+}

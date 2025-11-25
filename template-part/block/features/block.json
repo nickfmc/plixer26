@@ -1,0 +1,16 @@
+{
+    "name": "feature-chart",
+    "title": "Comparison Chart",
+    "description": "A comparison chart with a title, description, and two columns of features.",
+    "icon": "icon-chart",
+    "keywords": ["chart", "comparison", "features", "columns", "two", "2", "compare", "comparison chart", "feature chart", "feature comparison", "feature comparison chart", "feature columns", "feature columns chart", "feature columns comparison", "feature columns comparison chart", "feature columns comparison chart"],
+    "category": "myblocks",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "features.php"
+    },
+    "example": {
+        "attributes": {}
+    },
+    "align": "full"
+}

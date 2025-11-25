@@ -1,0 +1,213 @@
+/* ==========================================================================
+   OVERRIDES - hacks and styles of last resort live here
+   ========================================================================== */
+
+// ideally this file is forever blank. likely it won't be. :(
+
+// Elementor Styles
+
+.elementor-page:not(.single-resources) .editor-content {
+padding-left: 0;
+padding-right: 0;
+}
+.elementor-page .editor-content > div.elementor {
+   max-width: 100% !important; 
+}
+
+body.elementor-page > div.elementor {
+   margin-top: 0 !important;
+}
+
+.elementor-top-section {
+   margin-top: 0 !important;
+   padding-top: 0 !important;
+}
+
+.single-resources .u-dark .c-post-content{
+   color: #fff;
+   p {
+color: #fff !important;
+   }
+}
+
+.gb-accordion__toggle[tabindex]:focus {
+   outline: none !important;
+}
+
+.cta_button.btn,.hs-cta-wrapper a,.c-green-submit input[type="submit"] {
+   display: inline-block;
+   border-radius: 10px !important;
+   letter-spacing: 2.1px;
+   text-transform: uppercase;
+   margin-top: 20px;
+   cursor: pointer;
+   padding: 20px 30px;
+   font-family: $font-secondary;
+   text-shadow: 0px 2px 3px #0000004D;
+   background: transparent linear-gradient(87deg, #78A030 0%, #78A030 100%) 0% 0% no-repeat padding-box;
+   transition: background 0.3s ease-in-out; // Add transition for smooth effect
+
+   &:hover {
+      background: transparent linear-gradient(87deg, #5C7A22 0%, #5C7A22 100%) 0% 0% no-repeat padding-box; // Slightly darker green on hover
+   }
+}
+
+#cta_button_159093_60542602-76b0-48f3-8b07-98eccc31de88 {
+   display: inline-block;
+   padding: 10px 23px;
+   letter-spacing: 1.8px;
+   margin-top: 0;
+}
+
+.hs-cta-wrapper + .hs-cta-wrapper {
+   @media(width >= $bp-medium) {
+      margin-left: 30px;
+   } 
+}
+
+.u-dark .c-container-white, .c-container-white {
+color: #000;
+p, h2,h3,h4,h5,h6 {
+color: #000;
+}
+}
+
+.page-template-pg-interior-php {
+   footer {
+      margin-top: 60px;
+      @media(width >= $bp-medium) {
+         margin-top: 100px;
+      
+      } 
+   }
+}
+
+.u-purple-hs {
+   .cta_button.btn, a {
+      background: transparent linear-gradient(96deg, #593189 0%, #3D1E69 100%) 0% 0% no-repeat padding-box !important; // Reverse gradient on hover
+      padding: 20px 37px !important;
+      font-weight: 700;
+      &:hover {
+          background: transparent linear-gradient(96deg, #593189 100%, #3D1E69 0%) 0% 0% no-repeat padding-box !important; // Reverse gradient on hover
+      }
+   }
+}
+
+.editor-content #strattic-post-type-filters {
+   margin-bottom: 60px;
+   background: rgba(0,0,0,.04);
+  padding: 5px 40px;
+  border-radius: 10px;
+
+    ul {
+      margin: 0 !important;
+      display: flex;
+      flex-direction: column;
+      @media(width >= 680px) {
+      flex-direction: row;
+      } 
+      li {
+         padding-left: 0;
+         margin-right: 25px;
+         &::before {
+            display: none;
+         }
+         input {
+            margin-right: 8px;
+         }
+      }
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 23px;
+      letter-spacing: 1.8px;
+      margin-top: 0;
+      border-radius: 10px !important;
+      color: #fff;
+      background: transparent linear-gradient(87deg, #78A030 0%, #78A030 100%) 0% 0% no-repeat padding-box;
+      transition: background 0.3s ease-in-out; // Add transition for smooth effect
+      &:hover {
+         background: transparent linear-gradient(87deg, #5C7A22 0%, #5C7A22 100%) 0% 0% no-repeat padding-box; // Slightly darker green on hover
+      }
+    }
+}
+
+.strattic-search-result, .search-results article {
+   width: 960px;
+   margin: auto;
+   max-width: 100%;
+   border-bottom: 1px dotted $color-purple-one;
+   margin-bottom: 30px;
+   h2 {
+      font-size: clamped(20px, 23px);
+      margin-bottom: 10px;
+   }
+}
+
+.search-results {
+   .c-post-nav ul {
+      justify-content: center;
+      margin-bottom: 30px;
+      gap: 30px;
+   }
+}
+
+// accessibility
+$focus-color: $color-green; 
+
+// Create a placeholder for focus styles
+%focus-outline {
+  outline: 2px solid $focus-color !important;
+  outline-offset: -2px;
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+[tabindex]:focus {  // includes any custom tabindex elements
+  @extend %focus-outline;
+}
+
+// High contrast mode support
+@media (forced-colors: active) {
+  a:focus,
+  button:focus,
+  input:focus,
+  textarea:focus,
+  select:focus,
+  [tabindex]:focus {
+    outline: 2px solid SelectedItem !important;
+  }
+}
+
+.skip-link {
+   position: absolute;
+   top: -100px;
+   left: 50%;
+   transform: translateX(-50%);
+   padding: 12px 24px;
+   background: #000; // Modern blue color
+   color: #ffffff;
+   font-family: system-ui, -apple-system, sans-serif;
+   font-weight: 500;
+   text-decoration: none;
+   border-radius: 0 0 8px 8px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   transition: top 0.3s ease;
+   z-index: 10000;
+   
+   &:focus {
+       top: 0;
+       outline: 2px solid #ffffff;
+       outline-offset: -4px;
+       color: #fff !important;
+   }
+   
+   
+}
+
+.resource-type-case-study h2 {
+   color: $color-green;
+}

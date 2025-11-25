@@ -1,0 +1,155 @@
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+
+
+.c-page-header {
+  position: fixed;
+  background: rgb(255,255,255);
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 80px;
+  // padding-left: 25px;
+  // padding-right: 25px;
+  transition: $transition-ease;
+  border-bottom: 1px solid $color-purple-dark;
+  @media(width >= 1106px) {
+ height: 117px;
+  }
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: .7s ease-in-out;
+  }
+
+  &.sticky {
+    box-shadow: 0px 0px 27px rgba(0, 0, 0, 0.35);
+    &::before {
+      opacity: 0;
+    }
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+.c-page-header-lower {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+
+
+
+.c-page-header-topper {
+ 
+  @media(width >= 1106px) {
+ background-color: $color-plixer-gray;
+  position: relative;
+  z-index: 3;
+  padding: 4px 25px;
+  
+  } 
+}
+
+.c-page-header-topper-inner {
+  display: none;
+  @media(width >= 1106px) {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: $color-blue;
+  position: relative;
+  right: 70px;
+  
+  
+  a {
+    text-transform: uppercase;
+    font-size: 14px;
+    &:first-of-type {
+     color: $color-blue;
+     font-weight: 600;
+      padding: 0 20px;
+      position: relative;
+      margin-right: 20px;
+      &::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        right: 0;
+
+        width: 2px;
+        height: 100%;
+        background: #fff;
+      }
+    }
+    &:nth-of-type(2) {
+      background: $color-purple-dark;
+      transition: all 0.3s ease;
+      color: #fff;
+      padding: 2px 20px;
+      border-radius: 100px;
+      margin-right: 10px;
+      box-shadow: 0 0 0 0 rgba($color-purple-dark, 0.7), 0 2px 8px 0 rgba($color-purple-dark, 0.15);
+      position: relative;
+      overflow: hidden;
+      &:hover, &:focus {
+        background-color: $color-black;
+        color: #fff;
+       
+      }
+    }
+    &:nth-of-type(3) {
+      background: $color-green-new;
+      transition: all 0.3s ease;
+      color: #fff;
+      padding: 2px 20px;
+      border-radius: 100px;
+      margin-right: 10px;
+      box-shadow: 0 0 0 0 rgba($color-green-new, 0.7), 0 2px 8px 0 rgba($color-green-new, 0.15);
+      position: relative;
+      overflow: hidden;
+      &:hover, &:focus {
+       background-color: #005607;
+      color: #fff;
+       
+      }
+    }
+  }
+  } 
+  
+}
+
+
+
+
+.c-home-banner {
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -230px;
+    left: 0;
+    width: 100%;
+    height: 387px;
+    background-image: url('../img/wave2.png');
+    background-position: center;
+    background-size: 1200px 387px;
+    background-repeat: no-repeat;
+
+  }
+}
+
+
+//     .single-post, .single-member_blog_type, .news_type-template-default, .page-template-pg-news  {
+//     background-image: url(../img/lines.png);
+//     background-repeat: no-repeat;
+//     background-position: center 190px;
+//     position: relative;
+// }

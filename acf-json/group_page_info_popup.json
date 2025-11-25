@@ -1,0 +1,249 @@
+{
+    "key": "group_page_notifications",
+    "title": "Page Notifications",
+    "fields": [
+        {
+            "key": "field_enable_fixed_bar",
+            "label": "Enable Fixed Bar",
+            "name": "enable_fixed_bar",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Enable the fixed notification bar at the bottom of this page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_fixed_bar_text",
+            "label": "Fixed Bar Text",
+            "name": "fixed_bar_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Text that appears in the fixed bar notification",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_enable_fixed_bar",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "new_lines": "br",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 3
+        },
+        {
+            "key": "field_fixed_bar_button",
+            "label": "Fixed Bar Button",
+            "name": "fixed_bar_button",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Optional button that appears in the fixed bar",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_enable_fixed_bar",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_enable_info_popup",
+            "label": "Enable Info Popup",
+            "name": "enable_info_popup",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Enable the info popup notification bell on this page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_info_popup_title",
+            "label": "Info Popup Title",
+            "name": "info_popup_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Title that appears in the popup header",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_enable_info_popup",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_info_popup_intro_text",
+            "label": "Info Popup Intro Text",
+            "name": "info_popup_intro_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Introductory text that appears below the title",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_enable_info_popup",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "new_lines": "wpautop",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 4
+        },
+        {
+            "key": "field_info_popup_links",
+            "label": "Info Popup Links",
+            "name": "info_popup_links",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Add links that will appear in the popup",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_enable_info_popup",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Link",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_link_intro_text",
+                    "label": "Link Intro Text",
+                    "name": "link_intro_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Optional text that appears above the link",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_info_popup_links"
+                },
+                {
+                    "key": "field_popup_link",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "The actual link (URL, title, and target)",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_info_popup_links"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "resources"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for controlling page-level notifications including fixed bars and info popups",
+    "show_in_rest": 0
+}

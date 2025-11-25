@@ -1,0 +1,28 @@
+/* ==========================================================================
+   HORIZONTAL RULE
+   ========================================================================== */
+
+   hr, hr.wp-block-separator {
+    display: block;  // border: none;
+    margin: 1rem auto;
+    padding: 0;
+    clear: both;
+    width: 100%;
+    border-top: 0;
+    border-color: #333;
+    margin: 50px auto;
+  }
+
+    /* Default separator styles */
+    hr, hr.wp-block-separator {
+      width: 60%;
+      height: 2px;
+      background: transparent linear-gradient(90deg, #59318900 0%, #593189 49%, #59318900 100%) 0% 0% no-repeat;
+      margin: 15px auto;
+      &.is-style-wide {
+          width: 100%;
+          background: none;
+          border-bottom: 1px dotted $color-purple-one;
+          margin: 40px auto;
+      }
+    }

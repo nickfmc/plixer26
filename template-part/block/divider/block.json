@@ -1,0 +1,16 @@
+{
+    "name": "facny-divider",
+    "title": "Fancy Divider",
+    "description": "A fancy divider block",
+    "icon": "admin-comments",
+    "keywords": ["divider", "fancy"],
+    "category": "myblocks",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "divider.php"
+    },
+    "example": {
+        "attributes": {}
+    },
+    "align": "full"
+}

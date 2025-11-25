@@ -1,0 +1,64 @@
+/* ==========================================================================
+   LINK BUTTON STYLES
+   ========================================================================== */
+
+.c-btn-primary {
+  display: block;
+  text-align: center;
+  margin: 1rem 0 1.75rem 0;
+}
+.post-nav-prev a, .post-nav-next a, .c-blk-btn a, .c-btn-primary a, .wp-block-button.is-style-standard a.wp-block-button__link, .wp-block-button.is-style-standard .wp-block-button__link {
+letter-spacing: 2px;
+  font-weight: 600;
+  padding: 16px 35px;
+  border-radius: 30px;
+  background-color: #008909; 
+  color: #ffffff;
+
+  &:hover {
+    background-color: darken(#008909, 5%);
+  color: #ffffff;
+  }
+}
+
+.c-standard-button-purple:hover {
+  background: transparent linear-gradient(96deg, #593189 0%, #3D1E69 100%) 0% 0% no-repeat padding-box; // Reverse gradient on hover
+}
+
+.c-post-nav ul {
+  overflow: visible !important;
+}
+
+.c-post-nav li {
+padding-left: 0 !important;
+  &::before {display: none !important;}
+}
+
+.c-btn-purple a {
+
+  letter-spacing: 2px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 19px 35px;
+  border-radius: 8px;
+  background-color: #371b5e;
+  color: #ffffff;
+  text-decoration: none;
+  background-image: linear-gradient(90deg, #371b5e, #593189);
+}
+
+.c-btn-newgreen a {
+  letter-spacing: 2px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 19px 35px;
+  border-radius: 8px;
+  background-color: $color-green-new; 
+  border: 1px solid $color-green;
+  color: #ffffff;
+
+  &:hover {
+    background-color: $color-green-new;
+  color: #ffffff;
+  }
+}

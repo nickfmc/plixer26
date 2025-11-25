@@ -1,0 +1,181 @@
+/* ==========================================================================
+   MISC UTILITIES
+   ========================================================================== */
+
+.u-absolute {
+  position: absolute;
+}
+.u-relative {
+  position: relative;
+}
+
+.u-large-text, .is-style-large-text {
+  font-size: 1.625rem;
+}
+
+.u-flex {
+  display: flex;
+}
+.u-block {
+  display: block;
+}
+
+.u-white-text {
+  color: $color-white; 
+}
+
+.u-size-bump {
+  font-size: 20px;
+  @media(width >= $bp-medium) {
+  font-size: 22px;
+  } 
+}
+
+.u-text-center {
+  text-align: center;
+}
+.u-center-cta {
+  text-align: center;
+a {
+  display: inline-block; 
+}
+}
+// .u-green {
+//   color: $color-green;
+// }
+
+// ++ media or embed aspect ratio +++++++++++++++++++++++++++++++++
+.u-aspect-16x9 {
+  padding-bottom: 56.25%; /* (9 / 16 = 0.5625) */
+}
+
+
+// ++ float orphan fix trick +++++++++++++++++++++++++++++++++
+.u-orphan-fix {
+  overflow: hidden;
+  width: auto;
+}
+
+
+// ++ visibility classes ++++++++++++++++++++++++++++++++++++
+.u-visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.u-visually-hidden-focusable:active,
+.u-visually-hidden-focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+.u-hover-grow {
+  transition: $transition-ease;
+  &:hover {
+    transform: scale(1.05);
+    .link-arrow { 
+      transform: rotate(44deg);
+    }
+  }
+  .link-arrow {
+    transition: $transition-ease;
+   
+  }
+}
+
+.u-three-col {
+  columns: 3;
+}
+.editor-content ul:not(.inputs-list).u-unstyled-list {
+margin: 0;
+li {
+  padding: 0;
+  &::before {
+    display: none;
+  }
+}
+}
+
+.u-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-figure-269 {
+  @media(width >= $bp-large) {
+    figure {
+      flex: 0 0 auto;
+      height: 269px;
+      position: relative;
+      img {
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  } 
+}
+
+.u-hidden-onload {
+  opacity: 0;
+}
+
+// utility pages
+
+
+.u-stretch-link{
+	position: relative;
+  p {
+    margin-bottom: 0;
+
+  }
+}
+
+.u-stretch-link a {
+  position: unset !important;
+}
+
+.u-stretch-link a::after{
+	content: '';
+	position: absolute;
+	inset: 0;
+}
+
+// .u-stretch-link a:is(:focus-visible)::after{
+// 	outline: 2px solid;
+// }
+
+.u-stretch-link a:is(:hover, :focus){
+	outline: none;
+}
+
+.u-arrow-box {
+  position: relative;
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: -10px; // adjust as needed
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    border-top: 12px solid $color-green;
+  }
+}

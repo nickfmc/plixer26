@@ -1,0 +1,16 @@
+{
+    "name": "megamenu-list",
+    "title": "Mega Menu List",
+    "description": "Mega Menu List",
+    "icon": "list-view",
+    "keywords": ["megamenu", "list"],
+    "category": "myblocks",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "megalist.php"
+    },
+    "example": {
+        "attributes": {}
+    },
+    "align": "full"
+}
