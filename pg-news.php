@@ -9,9 +9,9 @@ Template Name: News Main Page
 
 <div class="o-layout-row c-news-hero">
   <div class="o-wrapper-wide">
-    <div class="c-news-hero__content">
-      <div class="c-news-hero__text">
-        <div class="c-news-hero__label">
+    <div class="c-angled-hero__content">
+      <div class="c-angled-hero__text">
+        <div class="c-angled-hero__label">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
             <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
@@ -19,12 +19,11 @@ Template Name: News Main Page
           <span>Plixer News</span>
         </div>
         <h1>Stay Up to Date with <br class="hide-mobile"/>Plixer <span class="u-green">Announcements</span></h1>
-        <p class="c-news-hero__tagline">Get the latest updates on product releases, company news, and industry insights</p>
+        <p class="c-angled-hero__tagline">Get the latest updates on product releases, company news, and industry insights</p>
       </div>
     </div>
   </div>
-  <div class="c-news-hero__line c-news-hero__line--left"></div>
-  <div class="c-news-hero__line c-news-hero__line--right"></div>
+
 </div>
 
 <div class="o-layout-row u-light c-news-bg">

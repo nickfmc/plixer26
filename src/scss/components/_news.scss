@@ -1,10 +1,34 @@
 // News background color
 .c-news-bg {
-    background-color: #e5f0f4;
+    background-color: #fff;
 }
 
-// News Hero Section
+// Angled Hero Section
+// 
+// Required HTML Markup:
+// <section class="c-angled-hero">
+//     <div class="o-wrapper">
+//         <div class="c-angled-hero__content">
+//             <div class="c-angled-hero__text">
+//                 <div class="c-angled-hero__label">
+//                     <svg><!-- Icon SVG --></svg>
+//                     <span>Label Text</span>
+//                 </div>
+//                 <h1>Hero Headline <span class="hide-mobile">Extra Text</span></h1>
+//                 <p class="c-angled-hero__tagline">Tagline or description text goes here</p>
+//             </div>
+//             <div class="c-angled-hero__media">
+//                 <!-- Optional: Image, video, or other media content -->
+//             </div>
+//         </div>
+//     </div>
+// </section>
+//
+
 .c-news-hero {
+    background-color: #e5f0f4;
+}
+.c-angled-hero {
     min-height: 500px;
     display: flex;
     align-items: center;
@@ -16,7 +40,7 @@
         min-height: 580px;
     }
     
-    // Blue angled section
+    // Blue angled section background
     &::before {
         content: "";
         position: absolute;
@@ -25,9 +49,8 @@
         width: 100%;
         height: 100%;
         background: #e5f0f4;
-        clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
-        z-index: 0;
-        z-index: 4;
+        clip-path: polygon(13% 0%,98% 0%,87% 100%,-3% 100%);
+        z-index: 1;
     }
     
     h1 {
@@ -36,7 +59,7 @@
     
     &__content {
         position: relative;
-        z-index: 6;
+        z-index: 2;
         display: grid;
         grid-template-columns: 1fr;
         gap: 40px;
@@ -53,6 +76,11 @@
     
     &__text {
         max-width: 600px;
+    }
+    
+    &__media {
+        position: relative;
+        z-index: 2;
     }
     
     &__label {
@@ -115,27 +143,31 @@
         }
     }
     
-    // Orange diagonal lines aligned with clip-path edges
+    // Optional: Orange diagonal accent lines aligned with clip-path edges
+    // Add <div class="c-angled-hero__line c-angled-hero__line--left"></div> before closing section tag
+    // Add <div class="c-angled-hero__line c-angled-hero__line--right"></div> before closing section tag
     &__line {
         position: absolute;
         top: 0;
         height: 100%;
-        background: linear-gradient(180deg, #FF6B35 0%, #FF8C42 100%);
-        z-index: 1;
+        width: 100%;
+        background: $color-orange;
+        z-index: 0;
         
-        // Left edge line - same angle as clip-path
+        // Left edge line - matches the left edge of the blue background
         &--left {
-            left: -8px;
-            width: 100%;
-            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+            left: -15px;
+            clip-path: polygon(13% 0%, 98% 0%, 87% 100%, -3% 100%);
         }
         
-        // Right edge line - same angle as clip-path
+        // Right edge line - matches the right edge of the blue background
         &--right {
-            right: -8px;
-            width: 100%;
-            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+            right: -15px;
+            clip-path: polygon(13% 0%, 98% 0%, 87% 100%, -3% 100%);
         }
+    }
+    > div:not(.c-angled-hero__line) {
+        z-index: 3;
     }
 }
 
@@ -342,8 +374,10 @@
 
 // News Archive
 .c-news-archive {
-
-    padding: 0 20px 80px 20px;
+background-color: #e5f0f4;
+    padding: 30px 20px 80px 20px;
+    border-radius: 10px;
+    margin-bottom: 50px;
     
     
     &__header {
