@@ -7,7 +7,7 @@ Template Name: News Main Page
 
 <?php get_header(); ?>
 
-<div class="o-layout-row c-news-hero" style="background-color: #e5f0f4;">
+<div class="o-layout-row c-news-hero">
   <div class="o-wrapper-wide">
     <div class="c-news-hero__content">
       <div class="c-news-hero__text">
@@ -21,11 +21,10 @@ Template Name: News Main Page
         <h1>Stay Up to Date with <br class="hide-mobile"/>Plixer <span class="u-green">Announcements</span></h1>
         <p class="c-news-hero__tagline">Get the latest updates on product releases, company news, and industry insights</p>
       </div>
-      <div class="c-news-hero__graphic">
-        <div class="c-news-hero__graphic-bg"></div>
-      </div>
     </div>
   </div>
+  <div class="c-news-hero__line c-news-hero__line--left"></div>
+  <div class="c-news-hero__line c-news-hero__line--right"></div>
 </div>
 
 <div class="o-layout-row u-light c-news-bg">

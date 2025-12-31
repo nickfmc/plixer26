@@ -5236,18 +5236,31 @@ p {
           align-items: center;
   position: relative;
   overflow: hidden;
+  background: #ffffff;
 }
 @media (width >= 768px) {
   .c-news-hero {
     min-height: 580px;
   }
 }
+.c-news-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #e5f0f4;
+  clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+  z-index: 0;
+  z-index: 4;
+}
 .c-news-hero h1 {
   color: #371b5e;
 }
 .c-news-hero__content {
   position: relative;
-  z-index: 2;
+  z-index: 6;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
@@ -5331,56 +5344,23 @@ p {
     font-size: 20px;
   }
 }
-.c-news-hero__graphic {
-  position: relative;
-  display: none;
-}
-@media (width >= 980px) {
-  .c-news-hero__graphic {
-    display: block;
-    height: 400px;
-  }
-}
-.c-news-hero__graphic-bg {
+.c-news-hero__line {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 350px;
-  height: 350px;
-  background: linear-gradient(135deg, rgba(123, 92, 161, 0.3) 0%, rgba(148, 211, 63, 0.3) 100%);
-  border-radius: 50%;
-  -webkit-filter: blur(60px);
-          filter: blur(60px);
-  -webkit-animation: pulse 8s ease-in-out infinite;
-          animation: pulse 8s ease-in-out infinite;
+  top: 0;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#FF6B35), to(#FF8C42));
+  background: linear-gradient(180deg, #FF6B35 0%, #FF8C42 100%);
+  z-index: 1;
 }
-.c-news-hero__graphic-bg::before, .c-news-hero__graphic-bg::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
+.c-news-hero__line--left {
+  left: -8px;
+  width: 100%;
+  clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
 }
-.c-news-hero__graphic-bg::before {
-  top: -20%;
-  right: -20%;
-  width: 200px;
-  height: 200px;
-  background: rgba(9, 174, 239, 0.4);
-  -webkit-filter: blur(40px);
-          filter: blur(40px);
-  -webkit-animation: float 6s ease-in-out infinite;
-          animation: float 6s ease-in-out infinite;
-}
-.c-news-hero__graphic-bg::after {
-  bottom: -10%;
-  left: -10%;
-  width: 150px;
-  height: 150px;
-  background: rgba(148, 211, 63, 0.3);
-  -webkit-filter: blur(30px);
-          filter: blur(30px);
-  animation: float 7s ease-in-out infinite reverse;
+.c-news-hero__line--right {
+  right: -8px;
+  width: 100%;
+  clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
 }
 
 @-webkit-keyframes pulse {
