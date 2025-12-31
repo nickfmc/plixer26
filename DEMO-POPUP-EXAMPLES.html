@@ -1,0 +1,82 @@
+<!-- 
+DEMO POPUP USAGE EXAMPLES
+Copy these examples to use the popup in your theme
+-->
+
+<!-- EXAMPLE 1: Simple Link -->
+<a href="#" class="popup-demo">Get Free Demo</a>
+
+<!-- EXAMPLE 2: Button with existing classes -->
+<button class="btn btn-primary popup-demo">Request a Quote</button>
+
+<!-- EXAMPLE 3: Custom styled link -->
+<a href="#" class="popup-demo custom-cta-button">
+    Schedule Consultation
+</a>
+
+<!-- EXAMPLE 4: Using Shortcode in Page Editor -->
+[demo_popup_button text="Get Started Now" class="btn-large"]
+
+<!-- EXAMPLE 5: PHP Template Usage -->
+<?php 
+// In your template files (header.php, page templates, etc.)
+echo demo_popup_trigger_button('Contact Us', 'header-cta-button');
+?>
+
+<!-- EXAMPLE 6: Within WordPress Menu (Custom HTML menu item) -->
+<a href="#" class="popup-demo">Free Consultation</a>
+
+<!-- EXAMPLE 7: Inside Gutenberg Block (Custom HTML block) -->
+<div class="call-to-action">
+    <h3>Ready to Get Started?</h3>
+    <p>Talk to our team today</p>
+    <a href="#" class="popup-demo btn-cta">Open Demo Form</a>
+</div>
+
+<!-- EXAMPLE 8: Footer CTA -->
+<section class="footer-cta">
+    <div class="container">
+        <h2>Need Help?</h2>
+        <button class="popup-demo big-cta-btn">Get Your Free Case Evaluation</button>
+    </div>
+</section>
+
+<!-- EXAMPLE 9: Sticky/Fixed Button -->
+<div class="sticky-cta">
+    <a href="#" class="popup-demo">
+        <span>📞</span> Request Callback
+    </a>
+</div>
+
+<!-- EXAMPLE 10: Within ACF Flexible Content -->
+<?php if (get_row_layout() == 'cta_section'): ?>
+    <div class="cta-block">
+        <h3><?php the_sub_field('heading'); ?></h3>
+        <a href="#" class="popup-demo"><?php the_sub_field('button_text'); ?></a>
+    </div>
+<?php endif; ?>
+
+<!-- 
+CUSTOMIZATION: Change Form ID
+Add this to your functions.php to use a different form:
+-->
+<?php
+add_filter('demo_popup_form_id', function() {
+    return 5; // Change to your Gravity Form ID
+});
+?>
+
+<!-- 
+CUSTOMIZATION: Different Forms Per Page
+Add this to your functions.php:
+-->
+<?php
+add_filter('demo_popup_form_id', function() {
+    if (is_page('contact')) {
+        return 3; // Contact page form
+    } elseif (is_singular('product')) {
+        return 7; // Product inquiry form
+    }
+    return 1; // Default form
+});
+?>

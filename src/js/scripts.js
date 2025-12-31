@@ -700,5 +700,63 @@ $('#mobile-nav').hcOffcanvasNav({
   //   midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
   // });
 
+  // *********************** SUBSCRIBE FLYOUT *********************************
+  // Sticky subscribe button show/hide on scroll
+  const subscribeBtn = document.querySelector('.c-subscribe-sticky');
+  const subscribeFlyout = document.querySelector('.c-subscribe-flyout');
+  
+  if (subscribeBtn && subscribeFlyout) {
+    let scrollTimeout;
+    
+    // Show button after scrolling down 300px
+    window.addEventListener('scroll', function() {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(function() {
+        if (window.scrollY > 300) {
+          subscribeBtn.classList.add('is-visible');
+        } else {
+          subscribeBtn.classList.remove('is-visible');
+        }
+      }, 100);
+    });
+    
+    // Open flyout
+    subscribeBtn.addEventListener('click', function() {
+      subscribeFlyout.classList.add('is-open');
+      subscribeFlyout.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('subscribe-flyout-open');
+    });
+    
+    // Close flyout - close button
+    const closeBtn = subscribeFlyout.querySelector('.c-subscribe-flyout__close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function() {
+        closeFlyout();
+      });
+    }
+    
+    // Close flyout - overlay click
+    const overlay = subscribeFlyout.querySelector('.c-subscribe-flyout__overlay');
+    if (overlay) {
+      overlay.addEventListener('click', function() {
+        closeFlyout();
+      });
+    }
+    
+    // Close flyout - Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && subscribeFlyout.classList.contains('is-open')) {
+        closeFlyout();
+      }
+    });
+    
+    function closeFlyout() {
+      subscribeFlyout.classList.remove('is-open');
+      subscribeFlyout.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('subscribe-flyout-open');
+    }
+  }
+  // *********************** END SUBSCRIBE FLYOUT *********************************
+
 });
 // *********************** END CUSTOM JQUERY DOC READY SCRIPTS *********************************

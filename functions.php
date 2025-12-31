@@ -26,5 +26,8 @@ require_once('inc/admin.php'); // things that happen only in the admin
 // CUSTOM FUNCTIONS FOR EACH WEBSITE
 require_once('inc/gdt-custom.php'); // per project custom functions
 
+// DEMO POPUP SYSTEM
+require_once('inc/demo-popup.php'); // portable popup component with Gravity Forms
+
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

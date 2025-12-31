@@ -14,3 +14,4 @@ require('script-loader!../node_modules/hc-offcanvas-nav/dist/hc-offcanvas-nav.js
 // NOTE: enable below if you have DROP DOWN MAIN MENU + UPDATE CLASSES AS NEED BE
 // require('./js/touch-navigation');
 require('./js/scripts'); 
+require('./js/demo-popup'); 

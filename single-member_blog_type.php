@@ -3,24 +3,34 @@
 <div class="o-layout-row o-poly-bg o-poly-bg-fade u-dark">
   <main class="" id="main-content" role="main" itemscope itemprop="mainContentOfPage" itemtype="https://schema.org/WebPageElement">
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-      <section class="editor-content">
+     
         <header class="c-article-header c-blog-header">
-          <div class="c-article-header-content">
-            <div>
-              <div class="c-cat-list">
-                <span>Blog</span>
+          <div class="o-wrapper-wide">
+              <div class="c-article-header-content">
+                <div>
+                  <div class="c-cat-list">
+                    <span>Blog</span>
+                  </div>
+                  <h1><?php the_title(); ?></h1>
+                </div>
+                            <!-- AddToAny BEGIN -->
+                <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                <a class="a2a_button_x"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" d="M9.294 6.928L14.357 1h-1.2L8.762 6.147L5.25 1H1.2l5.31 7.784L1.2 15h1.2l4.642-5.436L10.751 15h4.05L9.294 6.928ZM7.651 8.852l-.538-.775L2.832 1.91h1.843l3.454 4.977l.538.775l4.491 6.47h-1.843l-3.664-5.28Z"/></svg></a>
+                <a class="a2a_button_facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="38.41" viewBox="0 0 320 512"><path fill="currentColor" d="m279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></a>
+                <a class="a2a_button_linkedin"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="27.43" viewBox="0 0 448 512"><path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2c-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3c94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+                </div>
+                <script async src="https://static.addtoany.com/menu/page.js"></script>
+                <!-- AddToAny END -->
               </div>
-              <h1><?php the_title(); ?></h1>
-            </div>
-
-                    
-
-          </div>
-          <div>
-            <?php the_post_thumbnail('large');?>
+              <div class="c-header-img-clip">
+                <?php the_post_thumbnail('large');?>
+              </div>
           </div>
           
         </header>
+
+    <section class="editor-content">
+ 
 
 
 
@@ -85,24 +95,6 @@
               <?php endif; ?>
              
           
-              <div class="c-blog-sidebar">
-
-              
-
-
-
-              
-  <div class="c-subscribe-box">
-                  <h3>Subscribe</h3>
-             <div class="c-salesforce-form">
-             <iframe src="https://secure.plixer.com/l/1088472/2025-01-16/2rhw96" width="100%" height="900" type="text/html" frameborder="0" allowTransparency="true" style="border: 0"></iframe>
-             </div>
-             
-                              
-                </div>
-                <?php get_sidebar(); // sidebar ?>
-                
-             </div>
       
     
         
@@ -112,5 +104,34 @@
   </main>
 </div>
 <!-- /layout-row-->
+
+<!-- Sticky Subscribe Button -->
+<button class="c-subscribe-sticky" aria-label="Subscribe to blog">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+  </svg>
+  <span>Subscribe</span>
+</button>
+
+<!-- Subscribe Flyout Modal -->
+<div class="c-subscribe-flyout" aria-hidden="true">
+  <div class="c-subscribe-flyout__overlay"></div>
+  <div class="c-subscribe-flyout__content">
+    <button class="c-subscribe-flyout__close" aria-label="Close subscribe form">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div class="c-subscribe-flyout__header">
+      <h3>Subscribe to Our Blog</h3>
+      <p>Stay updated with the latest insights and news</p>
+    </div>
+    <div class="c-salesforce-form">
+      <iframe src="https://secure.plixer.com/l/1088472/2025-01-16/2rhw96" width="100%" height="900" type="text/html" frameborder="0" allowTransparency="true" style="border: 0"></iframe>
+    </div>
+  </div>
+</div>
 
 <?php get_footer(); ?>

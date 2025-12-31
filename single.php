@@ -111,7 +111,7 @@ $remaining_posts = $max_posts - $related_count;
 $show_related = false;
 if ($related_posts || $remaining_posts > 0) {
     $show_related = true;
-    echo '<div class="related-posts"><h3>Related</h3><div class="o-layout-row">';
+    echo '<div class="related-posts"><h3>Related Posts</h3><div class="o-layout-row">';
 }
 
 // Display manual related posts
@@ -216,15 +216,6 @@ if ($show_related) {
 }
 ?>
 
-              
-  <div class="c-subscribe-box">
-                  <h3>Subscribe</h3>
-             <div class="c-salesforce-form">
-             <iframe src="https://secure.plixer.com/l/1088472/2025-01-16/2rhw96" width="100%" height="900" type="text/html" frameborder="0" allowTransparency="true" style="border: 0"></iframe>
-             </div>
-             
-                              
-                </div>
                 <?php get_sidebar(); // sidebar ?>
                 
              </div>
@@ -237,5 +228,34 @@ if ($show_related) {
   </main>
 </div>
 <!-- /layout-row-->
+
+<!-- Sticky Subscribe Button -->
+<button class="c-subscribe-sticky" aria-label="Subscribe to blog">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+  </svg>
+  <span>Subscribe</span>
+</button>
+
+<!-- Subscribe Flyout Modal -->
+<div class="c-subscribe-flyout" aria-hidden="true">
+  <div class="c-subscribe-flyout__overlay"></div>
+  <div class="c-subscribe-flyout__content">
+    <button class="c-subscribe-flyout__close" aria-label="Close subscribe form">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div class="c-subscribe-flyout__header">
+      <h3>Subscribe to Our Blog</h3>
+      <p>Stay updated with the latest insights and news</p>
+    </div>
+    <div class="c-salesforce-form">
+      <iframe src="https://secure.plixer.com/l/1088472/2025-01-16/2rhw96" width="100%" height="900" type="text/html" frameborder="0" allowTransparency="true" style="border: 0"></iframe>
+    </div>
+  </div>
+</div>
 
 <?php get_footer(); ?>

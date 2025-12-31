@@ -220,9 +220,10 @@ background-color: $color-blue-light;
 
 // }
 .o-poly-header-news, .o-poly-header-bright {
-  margin-top: 90px;
+  // margin-top: 90px;
   padding-right: 25px;
   padding-left: 25px;
+  background-image: url('../img/lines.png') !important;
 }
 
 // .o-poly-bg-purple {

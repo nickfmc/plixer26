@@ -1,0 +1,380 @@
+/* ==========================================================================
+   DEMO POPUP COMPONENT
+   Portable popup system for Gravity Forms
+   ========================================================================== */
+
+// Overlay
+.demo-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 20px;
+    overflow-y: auto;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+// Prevent body scroll when popup is open
+body.demo-popup-open {
+    overflow: hidden;
+}
+
+// Container
+.demo-popup-container {
+    position: relative;
+    background: linear-gradient(135deg, #1a0d2d 0%, #2d1a4d 100%);
+    border-radius: 20px;
+    max-width: 1200px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .demo-popup-overlay.active & {
+        transform: scale(1);
+    }
+
+    @media(width >= $bp-medium) {
+        max-height: 85vh;
+    }
+}
+
+.demo-popup-intro {
+    font-size: 15px;
+    line-height: 1.4;
+    color: #4B3672;
+
+}
+
+// Close button
+.demo-popup-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #00890B;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    color: #00890B;
+
+    &:hover {
+        background: #00890B;
+        color: #fff;
+        transform: rotate(90deg);
+    }
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+// Content wrapper
+.demo-popup-content {
+    display: flex;
+    flex-direction: column;
+
+    @media(width >= $bp-large) {
+        flex-direction: row;
+    }
+}
+
+// Details section (left side)
+.demo-popup-details {
+    flex: 1;
+    padding: 40px 30px;
+    // background: linear-gradient(135deg, rgba(123, 92, 161, 0.2) 0%, rgba(87, 48, 135, 0.3) 100%);
+    background-color: #E5F0F4;
+    color: #fff;
+
+    @media(width >= $bp-medium) {
+        padding: 60px 50px;
+    }
+
+    @media(width >= $bp-large) {
+        flex: 0 0 45%;
+    }
+}
+
+// Badge
+.demo-popup-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, $color-orange 0%, #e85a2a 100%);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+// Title
+.demo-popup-title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    color: #4B3672;
+
+    @media(width >= $bp-medium) {
+        font-size: 42px;
+        margin-bottom: 40px;
+    }
+}
+
+// Benefits list
+.demo-popup-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 10px;
+        gap: 15px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .check-icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        background: linear-gradient(135deg, $color-green 0%, #00890B 100%);
+        border-radius: 50%;
+        padding: 4px;
+        color: #fff;
+        stroke: #fff;
+        margin-top: 2px;
+    }
+
+    strong {
+        display: block;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: #4B3672;
+    }
+
+    p {
+        font-size: 15px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.85);
+        margin: 0;
+    }
+}
+
+// Form section (right side)
+.demo-popup-form {
+    flex: 1;
+    background: #fff;
+    padding: 30px 25px;
+
+    @media(width >= $bp-medium) {
+        padding: 40px 35px;
+    }
+
+    @media(width >= $bp-large) {
+        flex: 0 0 55%;
+    }
+    .gfield_description {
+    padding: 0 !important;
+    font-size: 16px;
+}
+}
+
+
+
+.demo-popup-form-inner {
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+// Gravity Forms styling within popup
+.demo-popup-form {
+    .gform_wrapper {
+        margin: 0;
+
+        .gform_heading {
+            display: none;
+        }
+
+        .gform_body {
+            .gfield {
+                margin-bottom: 8px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            .gfield_label {
+                font-weight: 600;
+                font-size: 12px;
+                color: $color-purple-dark;
+                margin-bottom: 4px;
+                display: block;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            textarea,
+            select {
+                width: 100%;
+                padding: 8px 12px;
+                border: 2px solid #e0e0e0;
+                border-radius: 8px;
+                font-size: 13px;
+                transition: all 0.3s ease;
+                background: #fff;
+                color: $color-gray-700;
+
+                &:focus {
+                    outline: none;
+                    border-color: $color-purple-one;
+                    box-shadow: 0 0 0 3px rgba(123, 92, 161, 0.1);
+                }
+            }
+
+            textarea {
+                min-height: 65px;
+                resize: vertical;
+            }
+
+            .gfield_required {
+                color: $color-orange;
+            }
+        }
+
+        .gform_footer {
+            margin-top: 12px;
+            padding: 0;
+
+            input[type="submit"] {
+                width: 100%;
+                background: linear-gradient(135deg, $color-orange 0%, #e85a2a 100%);
+                color: #fff;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 8px;
+                font-size: 14px;
+                font-weight: 700;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+
+                &:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 20px rgba(243, 107, 57, 0.4);
+                }
+
+                &:active {
+                    transform: translateY(0);
+                }
+            }
+        }
+
+        .gfield_error {
+            .gfield_label {
+                color: $color-red-400;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            textarea,
+            select {
+                border-color: $color-red-400;
+            }
+        }
+
+        .validation_error {
+            background: #ffe5e5;
+            border-left: 4px solid $color-red-400;
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            color: $color-red-400;
+            font-size: 12px;
+        }
+    }
+
+    // Placeholder for form shortcode instruction
+    .gravity-form-placeholder {
+        background: #f5f5f5;
+        border: 2px dashed #ddd;
+        padding: 40px 20px;
+        text-align: center;
+        border-radius: 8px;
+        color: $color-gray-700;
+        font-family: monospace;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+}
+
+// Responsive adjustments
+@media(max-width: ($bp-large - 1px)) {
+    .demo-popup-container {
+        margin: 20px 0;
+    }
+
+    .demo-popup-content {
+        display: block;
+    }
+
+    .demo-popup-details {
+        border-radius: 20px 20px 0 0;
+    }
+
+    .demo-popup-form {
+        border-radius: 0 0 20px 20px;
+    }
+}
+
+// Animation for popup entrance
+@keyframes popupSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.demo-popup-overlay.active .demo-popup-container {
+    animation: popupSlideIn 0.4s ease forwards;
+}
