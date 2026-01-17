@@ -249,16 +249,18 @@
     position: relative;
     background: #fff;
     border-radius: 12px;
-    border: 2px solid #e5e7eb;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     padding: 32px;
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
+      border: 2px solid transparent;
+      transition: $transition-ease;
     
     &:hover {
-        border-color: $color-purple-one;
+        border: 2px solid $color-purple-one;
         box-shadow: 0 12px 32px rgba($color-purple-dark, 0.12);
-        transform: translateY(-4px);
+        transform: translateY(-2px);
         
         .c-news-item__title {
             color: $color-purple-one;
@@ -266,7 +268,7 @@
         
         .c-news-item__read-more {
             color: $color-purple-one;
-            transform: translateX(4px);
+            // transform: translateX(4px);
         }
     }
     

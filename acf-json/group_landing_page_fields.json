@@ -1,0 +1,180 @@
+{
+    "key": "group_landing_page_fields",
+    "title": "Landing Page Fields",
+    "fields": [
+        {
+            "key": "field_landing_headline",
+            "label": "Landing Page Headline",
+            "name": "landing_page_headline",
+            "type": "text",
+            "instructions": "Main headline for the landing page (leave empty to use page title)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "e.g., Transform Your Network Visibility in 30 Days",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_landing_subheadline",
+            "label": "Subheadline",
+            "name": "landing_page_subheadline",
+            "type": "textarea",
+            "instructions": "Supporting headline or value proposition",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "e.g., Join 5,000+ companies who trust Plixer for network monitoring",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_trust_badges",
+            "label": "Trust Badges",
+            "name": "trust_badges",
+            "type": "wysiwyg",
+            "instructions": "Add logos, certifications, or trust indicators (optional)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_form_headline",
+            "label": "Form Headline",
+            "name": "form_headline",
+            "type": "text",
+            "instructions": "Headline above the form",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Get Started Today",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_form_image",
+            "label": "Form Image (Optional)",
+            "name": "form_image",
+            "type": "image",
+            "instructions": "Optional image to display above the form. Recommended size: 600x400px",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_form_subtext",
+            "label": "Form Subtext",
+            "name": "form_subtext",
+            "type": "text",
+            "instructions": "Brief text under the form headline",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Fill out the form below and our team will contact you within 24 hours.",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_salesforce_form",
+            "label": "Form Embed Code (Salesforce/Pardot/Marketo)",
+            "name": "salesforce_form_embed",
+            "type": "textarea",
+            "instructions": "Paste your form embed code here (iframe, script, or HTML form). Example: <iframe src=\"https://secure.plixer.com/l/1088472/2025-12-10/2wvfkv\" width=\"100%\" height=\"1000\" frameborder=\"0\"></iframe>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 6,
+            "new_lines": ""
+        },
+        {
+            "key": "field_privacy_text",
+            "label": "Privacy Text",
+            "name": "privacy_text",
+            "type": "textarea",
+            "instructions": "Privacy statement below the form (optional)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "We respect your privacy. Your information will never be shared with third parties.",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": "br"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-landing-page.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Custom fields for the Landing Page template"
+}

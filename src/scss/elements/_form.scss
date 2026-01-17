@@ -50,37 +50,37 @@ li {
 }
 
 // dark pages
-.o-dark-grad, .o-dark-wave-grad , .o-poly-header, .u-dark {
-  form {
-    color: #fff;
-  }
-label {
-  color: #fff;
-  line-height: 1;
-}
-input, select, textarea {
-  margin-bottom: 10px;
-  border: 1px solid $color-purple-mid;
-  padding: 10px;
-  background: transparent;
-  color: #fff;
-  margin-left: 0;
-  margin-right: 10px;
-  &:active, &:focus-visible {
-    border: 1px solid $color-blue;
-    border-left: 0;
-    border-right: 0;
-    border-top: 0;
-    outline: none;
-  }
-  &::placeholder {
-    color: #fff;
-  }
-}
-select option {
-  background-color: #000;
-}
-}
+// .o-dark-grad, .o-dark-wave-grad , .o-poly-header, .u-dark {
+//   form {
+//     color: #fff;
+//   }
+// label {
+//   color: #fff;
+//   line-height: 1;
+// }
+// input, select, textarea {
+//   margin-bottom: 10px;
+//   border: 1px solid $color-purple-mid;
+//   padding: 10px;
+//   background: transparent;
+//   color: #fff;
+//   margin-left: 0;
+//   margin-right: 10px;
+//   &:active, &:focus-visible {
+//     border: 1px solid $color-blue;
+//     border-left: 0;
+//     border-right: 0;
+//     border-top: 0;
+//     outline: none;
+//   }
+//   &::placeholder {
+//     color: #fff;
+//   }
+// }
+// select option {
+//   background-color: #000;
+// }
+// }
 
 .c-case-form {
   width: 800px;

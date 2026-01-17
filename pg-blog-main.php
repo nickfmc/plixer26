@@ -99,7 +99,7 @@ Template Name: Blog Main Page
           </script>
       </div>
 
-<div class="c-post-grid">
+<div class="c-resources-grid">
    <?php 
    // Collect the IDs of the posts in the featured posts query
 $featured_post_ids = array();
@@ -120,18 +120,31 @@ endwhile; endif;
             );
           ?>
           <?php if ($wp_query->have_posts()) : while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
-            <article <?php post_class('c-post-card'); ?> role="article" itemscope itemtype="https://schema.org/BlogPosting">
-            <a href="<?php the_permalink()?>"></a>
-              <?php the_post_thumbnail('large'); ?> 
-                
-                <div class="c-card__content">
-                          <h4><?php the_title(); ?></h4>
-                          <!-- the excerpt -->
-                          <p class="c-card__content-excerpt"><?php echo gdt_excerpt(25); ?>...</p>
-                              
-                        </div>
-              
-              <!-- /editor-content -->
+            <article <?php post_class('c-resource-card'); ?> role="article" itemscope itemtype="https://schema.org/BlogPosting">
+            <a href="<?php the_permalink()?>" class="c-resource-card__link"></a>
+            
+            <div class="c-resource-card__image">
+              <?php the_post_thumbnail('large'); ?>
+              <div class="c-resource-card__overlay"></div>
+            </div>
+            
+            <div class="c-resource-card__content">
+              <?php 
+                $categories = get_the_category();
+                if (!empty($categories)) : 
+                  $category = $categories[0];
+                  echo '<span class="c-resource-badge">'.$category->name.'</span>';
+                endif; 
+              ?>
+              <h4><?php the_title(); ?></h4>
+              <p class="c-resource-card__excerpt"><?php echo gdt_excerpt(20); ?></p>
+              <span class="c-resource-card__cta">
+                Read More
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256">
+                  <path fill="currentColor" d="m218.83 130.83l-72 72a4 4 0 0 1-5.66-5.66L206.34 132H40a4 4 0 0 1 0-8h166.34l-65.17-65.17a4 4 0 0 1 5.66-5.66l72 72a4 4 0 0 1 0 5.66Z"/>
+                </svg>
+              </span>
+            </div>
             </article>
             <!-- /post-intro -->
             

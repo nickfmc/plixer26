@@ -17,3 +17,12 @@ a, a:active, a:hover, a:visited {
 a[href^="mailto:"] {
   overflow-wrap: break-word;
 }
+
+.editor-content p a:not(.gbp-button--primary), .editor-content ul li a {
+  text-decoration: underline;
+}
+
+
+.editor-content .post-nav-prev a {
+text-decoration: none !important;
+}

@@ -123,7 +123,7 @@ body.demo-popup-open {
 // Badge
 .demo-popup-badge {
     display: inline-block;
-    background: linear-gradient(135deg, $color-orange 0%, #e85a2a 100%);
+    background: linear-gradient(135deg, #F36B39 0%, #e85a2a 100%);
     color: #fff;
     padding: 6px 16px;
     border-radius: 20px;
@@ -215,7 +215,7 @@ body.demo-popup-open {
 
 
 .demo-popup-form-inner {
-    max-width: 450px;
+    // max-width: 450px;
     margin: 0 auto;
 }
 
@@ -272,7 +272,7 @@ body.demo-popup-open {
             }
 
             .gfield_required {
-                color: $color-orange;
+                color: #F36B39;
             }
         }
 
@@ -282,7 +282,7 @@ body.demo-popup-open {
 
             input[type="submit"] {
                 width: 100%;
-                background: linear-gradient(135deg, $color-orange 0%, #e85a2a 100%);
+                background: linear-gradient(135deg, #F36B39 0%, #e85a2a 100%);
                 color: #fff;
                 border: none;
                 padding: 12px 24px;

@@ -58,12 +58,12 @@ body.elementor-page > div.elementor {
    } 
 }
 
-.u-dark .c-container-white, .c-container-white {
-color: #000;
-p, h2,h3,h4,h5,h6 {
-color: #000;
-}
-}
+// .u-dark .c-container-white, .c-container-white {
+// color: #000;
+// p, h2,h3,h4,h5,h6 {
+// color: #000;
+// }
+// }
 
 .page-template-pg-interior-php {
    footer {
@@ -203,4 +203,366 @@ select:focus,
 
 .resource-type-case-study h2 {
    color: $color-green;
+}
+
+
+// From Customizer
+.u-lh {line-height:1.5;}
+.u-pur-tran-grad::after {
+	content:"";
+	position:absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-image: linear-gradient(180deg,rgba(255,255,255,0) 400px,rgba(55, 27, 94, 0.9) 400px)
+}
+
+@media screen and (max-width: 768px) {
+	.u-pur-tran-grad::after {
+		background-image: linear-gradient(180deg,rgba(255,255,255,0) 50px,rgba(55, 27, 94, 0.9) 50px)
+}
+	}
+
+
+.page-id-39730 .c-lower-cta {
+	display: none;
+}
+.c-home-slide .maw-slider__dots {
+	justify-content: flex-start;
+	z-index: 10;
+	position:relative;
+}
+
+.c-home-slide .wp-block-list li {
+	padding-bottom: 0 !important;
+	padding-top: 0 !important;
+	line-height: 1.6;
+}
+
+.maw-slider__dot {
+	background: #573087;
+}
+.cb-pagination-bullet {
+	background: #00890b !important;
+}
+
+.c-modal-nav {
+       display: none !important;
+   }
+
+.page-id-45533 .skip-links {
+	display:none;
+}
+
+.popup-trigger {
+	cursor:pointer;
+transition: ease all 155ms;
+}
+
+.popup-trigger:hover {
+		transform:scale(1.02);
+}
+
+.c-overflow-cut {
+	overflow-x: clip;
+}
+
+.c-plixer-one-intro mark{
+	font-size:5rem;
+}
+
+@media screen and (max-width: 768px) {
+      .c-plixer-one-intro mark {
+        font-size: 3rem !important;
+      }
+    }
+    @media screen and (max-width: 480px) {
+  .c-plixer-one-intro mark {
+        font-size: 2rem !important;
+      }
+    }
+
+.plixer-circle .circle-icon-title {
+	position:absolute;
+	top: -30px;
+	width: 200px;
+	text-align:center;
+	font-size:15px;
+	font-weight:700
+}
+
+.plixer-circle .tpgb-circle-item-3 .circle-icon-title {
+	top: 100%
+
+}
+
+.plixer-circle .tpgb-circle-item-4 .circle-icon-title {
+top: 100%;
+}
+
+.c-fancy-corner-border figure {
+	position: relative;
+}
+
+.c-fancy-corner-border figure::before {
+	content: "";
+	background: radial-gradient( farthest-corner at 0px 100%, #9ED33F 0%, #9ED33F00 80%);
+  border-radius: 10px;
+	width: 50%;
+	height: 50%;
+	position: absolute;
+	left: -14px;
+	bottom: -14px;
+	z-index: 1;
+}
+
+.c-fancy-corner-border--right figure::before {
+  background: radial-gradient( farthest-corner at 100% 100%, #9ED33F00 70%, #9ED33F 100%);
+	right: -14px;
+	left: auto;
+	width: 70%;
+	height: 90%;
+	transform: rotate(-180deg);
+}
+
+.c-fancy-corner-border img {
+	position: relative;
+	z-index: 10;
+}
+
+
+.team-card {
+	cursor:pointer;
+}
+.c-team-trigger {
+	position:absolute !important;
+	right:20px;
+	bottom: 20px
+}
+
+.has-large-font-size {
+	line-height:1.4
+}
+
+.tpgb-tab-content ul {
+	margin: 0 !important;
+}
+
+.c-grad-adjusted:after {
+	opacity: 0.5;
+}
+
+
+/* HOMEPAGE CSS DELETE AFTER CSS PUSH */
+.c-hp-ctas {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
+    align-items: stretch;
+    margin-bottom: 50px;
+	padding: 0 !important;
+	height: 100%;
+}
+
+.c-hp-cta-icon {
+    width: 60px;
+    margin: 0 auto 20px;
+}
+
+.c-hp-cta {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(45deg, #000000, #3D1E69, #7A5CA1, #593189), url('https://www.plixer.com/wp-content/themes/plixer24/img/bg_lights.png');
+    background-size: 400% 400%, 300% 300%, cover;
+    background-position: center, center, center;
+    background-blend-mode: color;
+    animation: gradientAnimation1 5s ease infinite, gradientAnimation2 7s ease-in-out infinite;
+    color: #fff;
+    padding: 0 50px;
+    overflow: visible;
+    position: relative;
+	margin-bottom: 0 !important;
+}
+
+
+
+.c-hp-cta-inner .c-btn-newgreen {
+
+  white-space: nowrap;
+}
+
+.c-hp-cta p {
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.c-hp-cta p:last-of-type {
+    margin-bottom: 40px;
+}
+
+.c-hp-cta h2 {
+    color: #94D33F;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+
+.c-hp-cta .c-btn-newgreen a {
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.c-hp-cta .c-btn-newgreen:hover a {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+}
+
+@keyframes gradientAnimation1 {
+    0% { background-position: 0% 0%; }
+    25% { background-position: 100% 0%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+@keyframes gradientAnimation2 {
+    0% { background-position: 100% 100%; }
+    50% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+
+
+.c-box-corner {
+    transition: all 0.3s ease;
+}
+
+.c-box-corner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    width: 13px;
+    height: 2px;
+}
+
+.c-box-corner::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    width: 2px;
+    height: 11px;
+}
+
+.c-box-corner-tl {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    transform: rotate(90deg);
+}
+
+.c-box-corner-tr {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    transform: rotate(-180deg);
+}
+
+.c-box-corner-bl {
+    position: absolute;
+    bottom: 13px;
+    left: 13px;
+}
+
+.c-box-corner-br {
+    position: absolute;
+    bottom: 8px;
+    right: 13px;
+    transform: rotate(-90deg);
+}
+
+.c-hp-cta .c-box-corner {
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.c-hp-cta:hover .c-box-corner {
+    opacity: 1;
+}
+
+.c-home-banner::after {
+    content: "";
+    position: absolute;
+    bottom: -230px;
+    left: 0;
+    width: 100%;
+    height: 387px;
+    background-image: url('https://www.plixer.com/wp-content/themes/plixer24/img/wave2.png');
+    background-position: center;
+    background-size: 1200px 387px;
+    background-repeat: no-repeat;
+}
+.c-hp-cta-inner {
+position: relative;
+  padding-top: 50px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+/* Checklist style with SVG checkmark in a purple circle */
+.editor-content ul.is-style-checklist {
+  list-style-type: none;
+  margin: 20px 0 20px 0;
+  padding: 0;
+  overflow: hidden;
+}
+.editor-content ul.is-style-checklist li {
+  margin: 0;
+  padding: 0 0 10px 40px;
+  position: relative;
+  font-size: clamp(16px, 18px, 18px);
+  font-weight: 300;
+}
+.editor-content ul.is-style-checklist li::before {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  content: "";
+  position: absolute;
+  background-color: #573087; /* Replace with your purple color */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  top: 4px;
+  left: 0;
+}
+.editor-content ul.is-style-checklist li::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  top: 8px;
+  left: 4px;
+	background-color: white;}
+/* HOMEPAGE CSS DELETE AFTER CSS PUSH */
+
+.page-id-64155 .form-field  input {
+	color: #000 !important;
 }

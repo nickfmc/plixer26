@@ -32,7 +32,7 @@
                 <script async src="https://static.addtoany.com/menu/page.js"></script>
                 <!-- AddToAny END -->
               </div>
-              <div class="c-header-img-resource">
+              <div class="c-header-img-clip">
                 <?php the_post_thumbnail('large');?>
               </div>
           </div>

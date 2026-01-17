@@ -1,3 +1,529 @@
+// ============================================================
+// MODERN TECH RESOURCES ARCHIVE STYLES
+// ============================================================
+
+// Hero Section - Matching Blog Header Style
+.c-resources-hero {
+    display: flex;
+    padding-top: 120px;
+    gap: 60px;
+    padding-top: 72px;
+    padding-bottom: 40px;
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-bottom: 90px;
+    flex-direction: column;
+    background-image: url(../img/interior-header-bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    
+    @media(width >= $bp-large) {
+        flex-direction: row;
+    }
+    
+    .o-wrapper-wide {
+        display: flex;
+    }
+    
+    &__content {
+        h1 {
+            font-size: clamp(36px, 5vw, 56px);
+            color: $color-blue;
+            margin-bottom: 0;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            
+          
+        }
+    }
+    
+    &__subtitle {
+        font-size: clamp(16px, 2vw, 20px);
+        color: $color-purple-dark;
+        font-family: $font-secondary;
+        font-weight: 300;
+        max-width: 600px;
+    }
+}
+
+// Main Container
+.c-resources-archive {
+    background: #f8f9fa;
+}
+
+.c-resources-main {
+    padding: 40px 0 80px;
+}
+
+// Section Headers
+.c-section-header {
+    margin-bottom: 50px;
+    
+    h2 {
+        font-size: clamp(28px, 3vw, 38px);
+        color: $color-purple-dark;
+        font-weight: 700;
+        margin-bottom: 12px;
+        letter-spacing: -0.01em;
+    }
+    
+    &__line {
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, $color-orange 0%, darken($color-orange, 15%) 100%);
+        border-radius: 2px;
+    }
+}
+
+// Featured Resources Section
+.c-featured-resources {
+    margin-bottom: 100px;
+}
+
+.c-featured-resources-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    
+    @media(width >= $bp-medium) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media(width >= $bp-large) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+// Featured Resource Card
+.c-resource-featured-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    
+    &--hero {
+        @media(width >= $bp-large) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        
+        .c-resource-featured-card__image {
+            height: 400px;
+            
+            @media(width >= $bp-large) {
+                height: 500px;
+            }
+        }
+        
+        .c-resource-featured-card__content {
+            padding: 40px;
+            
+            h3 {
+                font-size: clamp(24px, 3vw, 32px);
+            }
+        }
+        
+        .c-resource-excerpt {
+            display: block;
+        }
+        
+        .c-resource-cta {
+            display: inline-flex;
+        }
+    }
+    
+    &__link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 5;
+    }
+    
+    &__image {
+        position: relative;
+        height: 280px;
+        overflow: hidden;
+        background: linear-gradient(135deg, $color-purple-darker 0%, $color-blue-dark 100%);
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, transparent 60%);
+            pointer-events: none;
+        }
+    }
+    
+    &__content {
+        padding: 30px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        
+        h3 {
+            font-size: clamp(18px, 2vw, 22px);
+            color: $color-purple-dark;
+            margin-bottom: 12px;
+            font-weight: 700;
+            line-height: 1.3;
+            transition: color 0.3s ease;
+        }
+        
+        .c-entry-meta {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 16px;
+            font-family: $font-secondary;
+        }
+    }
+    
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 40px rgba(89, 49, 137, 0.2);
+        
+        .c-resource-featured-card__image img {
+            transform: scale(1.08);
+        }
+        
+        .c-resource-featured-card__content h3 {
+            color: $color-purple-one;
+        }
+        
+        .c-resource-cta {
+            gap: 12px;
+            color: $color-purple-one;
+        }
+    }
+}
+
+// Resource Badge
+.c-resource-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, $color-purple-one 0%, $color-purple-dark 100%);
+    align-self: flex-start;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(89, 49, 137, 0.25);
+    transition: all 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(89, 49, 137, 0.35);
+    }
+}
+
+// Excerpt and CTA
+.c-resource-excerpt {
+    display: none;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.c-resource-cta {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: $color-purple-dark;
+    font-family: $font-secondary;
+    transition: all 0.3s ease;
+    
+    svg {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.3s ease;
+    }
+}
+
+// All Resources Section
+.c-all-resources {
+    margin-top: 40px;
+}
+
+.c-resources-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 50px;
+    gap: 30px;
+    flex-wrap: wrap;
+    
+    @media(width >= $bp-large) {
+        align-items: center;
+    }
+}
+
+.c-resources-filter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    
+    label {
+        font-size: 16px;
+        font-weight: 600;
+        color: $color-purple-dark;
+        font-family: $font-secondary;
+        white-space: nowrap;
+    }
+}
+
+.c-filter-dropdown {
+    appearance: none;
+    background: #fff;
+    border: 2px solid $color-purple-one;
+    border-radius: 8px;
+    padding: 12px 40px 12px 16px;
+    font-size: 16px;
+    font-family: $font-secondary;
+    color: $color-purple-dark;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 256 256'%3E%3Cpath fill='%23593189' d='M213.66 101.66l-80 80a8 8 0 0 1-11.32 0l-80-80a8 8 0 0 1 11.32-11.32L128 164.69l74.34-74.35a8 8 0 0 1 11.32 11.32Z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 20px;
+    min-width: 200px;
+    
+    &:hover {
+        border-color: $color-purple-dark;
+        box-shadow: 0 2px 8px rgba(89, 49, 137, 0.15);
+    }
+    
+    &:focus {
+        outline: none;
+        border-color: $color-purple-dark;
+        box-shadow: 0 0 0 3px rgba(89, 49, 137, 0.1);
+    }
+}
+
+// Resources Grid
+.c-resources-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    
+    @media(width >= $bp-small) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media(width >= $bp-medium) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    @media(width >= $bp-large) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+// Resource Card
+.c-resource-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    
+    &__link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 5;
+    }
+    
+    &__image {
+        position: relative;
+        height: 220px;
+        overflow: hidden;
+        background: linear-gradient(135deg, $color-purple-darker 0%, $color-blue-dark 100%);
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    }
+    
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to top, rgba(26, 26, 46, 0.6) 0%, transparent 60%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+    }
+    
+    &__content {
+        padding: 24px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        
+        h4 {
+            font-size: 18px;
+            color: $color-purple-dark;
+            margin-bottom: 12px;
+            font-weight: 700;
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+    }
+    
+    &__excerpt {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #666;
+        margin-bottom: 16px;
+        flex: 1;
+    }
+    
+    &__cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        color: $color-purple-one;
+        font-family: $font-secondary;
+        transition: all 0.3s ease;
+        
+        svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+    }
+    
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 30px rgba(89, 49, 137, 0.18);
+        
+        .c-resource-card__image img {
+            transform: scale(1.1);
+        }
+        
+        .c-resource-card__overlay {
+            opacity: 1;
+        }
+        
+        .c-resource-card__content h4 {
+            color: $color-purple-one;
+        }
+        
+        .c-resource-card__cta {
+            gap: 10px;
+            
+            svg {
+                transform: translateX(4px);
+            }
+        }
+    }
+}
+
+// Pagination
+.c-resources-pagination {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    
+    ul {
+        display: flex;
+        gap: 8px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    li {
+        margin: 0;
+    }
+    
+    a, span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 44px;
+        height: 44px;
+        padding: 0 16px;
+        background: #fff;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        color: $color-purple-dark;
+        font-family: $font-secondary;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        gap: 8px;
+        
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+    
+    a:hover {
+        background: $color-purple-one;
+        border-color: $color-purple-one;
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(89, 49, 137, 0.25);
+    }
+    
+    .current {
+        background: linear-gradient(135deg, $color-purple-dark 0%, $color-purple-one 100%);
+        border-color: $color-purple-dark;
+        color: #fff;
+        pointer-events: none;
+    }
+    
+    .dots {
+        border: none;
+        background: transparent;
+        color: #999;
+        pointer-events: none;
+    }
+}
+
+// Legacy styles (keep for backward compatibility)
 .c-resource-header {
     padding-top: 80px;
     margin-bottom: 60px;

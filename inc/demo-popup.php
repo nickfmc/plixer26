@@ -20,11 +20,28 @@
 // Note: Styles are compiled into main.bundle.css via site.scss
 
 /**
- * Render the popup HTML with Gravity Form
+ * Render the popup HTML with form
  * This outputs the popup structure on every page
+ * 
+ * FORM CONFIGURATION:
+ * Set USE_PARDOT_FORM to true to use Pardot form, false to use Gravity Forms
  */
 function plixer_demo_popup_html() {
-    // Get the form ID from theme options or use default
+    // Don't show popup on thank-you pages to prevent redirect loops
+    if (is_page('thank-you') || 
+        strpos($_SERVER['REQUEST_URI'], 'thank-you') !== false || 
+        isset($_GET['thank-you']) || 
+        isset($_GET['submission']) ||
+        get_query_var('pagename') === 'thank-you') {
+        return;
+    }
+    
+    // EASY TOGGLE: Switch between Pardot and Gravity Forms
+    // true = Use Pardot form from pardot-demo.php
+    // false = Use Gravity Forms
+    define('USE_PARDOT_FORM', true);
+    
+    // Get the form ID from theme options or use default (only used if USE_PARDOT_FORM is false)
     // You can customize this to pull from ACF or theme customizer
     $form_id = apply_filters('demo_popup_form_id', 9); // Change '1' to your actual form ID
     
@@ -101,15 +118,27 @@ function plixer_demo_popup_html() {
                 <div class="demo-popup-form">
                     <div class="demo-popup-form-inner">
                         <?php 
-                        // Check if Gravity Forms is active
-                        if (class_exists('GFForms')) {
-                            gravity_form($form_id, false, false, false, '', true);
+                        if (USE_PARDOT_FORM) {
+                            // Use Pardot form
+                            if (file_exists(get_template_directory() . '/inc/pardot-demo.php')) {
+                                include(get_template_directory() . '/inc/pardot-demo.php');
+                            } else {
+                                echo '<div class="form-placeholder">';
+                                echo '<p><strong>Pardot Form Not Found</strong></p>';
+                                echo '<p>Please check that <code>inc/pardot-demo.php</code> exists.</p>';
+                                echo '</div>';
+                            }
                         } else {
-                            echo '<div class="gravity-form-placeholder">';
-                            echo '<p><strong>Gravity Forms Not Found</strong></p>';
-                            echo '<p>Please install Gravity Forms and create a form.</p>';
-                            echo '<p>Then update the form ID in <code>inc/demo-popup.php</code></p>';
-                            echo '</div>';
+                            // Use Gravity Forms
+                            if (class_exists('GFForms')) {
+                                gravity_form($form_id, false, false, false, '', true);
+                            } else {
+                                echo '<div class="gravity-form-placeholder">';
+                                echo '<p><strong>Gravity Forms Not Found</strong></p>';
+                                echo '<p>Please install Gravity Forms and create a form.</p>';
+                                echo '<p>Then update the form ID in <code>inc/demo-popup.php</code></p>';
+                                echo '</div>';
+                            }
                         }
                         ?>
                     </div>

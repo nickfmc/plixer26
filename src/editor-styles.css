@@ -34,7 +34,7 @@
   width: 100%;
 }
 
-.o-poly-header, .o-poly-header-bright, .c-hero-dark, .o-poly-header-news {
+.o-poly-header, .o-poly-header-news {
   background-color: #E5F0F4;
   padding-top: 70px;
   padding-left: 25px;
@@ -42,21 +42,21 @@
   padding-bottom: 70px;
   background-image: none !important;
 }
-.o-poly-header h1, .o-poly-header-bright h1, .c-hero-dark h1, .o-poly-header-news h1 {
+.o-poly-header h1, .o-poly-header-news h1 {
   color: #09aeef;
   line-height: 1.1;
 }
-.o-poly-header p, .o-poly-header-bright p, .c-hero-dark p, .o-poly-header-news p {
+.o-poly-header p, .o-poly-header-news p {
   margin-bottom: 0;
 }
 @media (width >= 768px) {
-  .o-poly-header, .o-poly-header-bright, .c-hero-dark, .o-poly-header-news {
+  .o-poly-header, .o-poly-header-news {
     padding-top: 80px;
     padding-bottom: 70px;
   }
 }
 
-.o-poly-header-news, .o-poly-header-bright {
+.o-poly-header-news {
   padding-right: 25px;
   padding-left: 25px;
   background-image: url("../img/lines.png") !important;
@@ -3500,48 +3500,6 @@ input::placeholder, textarea::placeholder {
   opacity: 1;
 }
 
-.o-dark-grad form, .o-dark-wave-grad form, .o-poly-header form, .u-dark form {
-  color: #fff;
-}
-.o-dark-grad label, .o-dark-wave-grad label, .o-poly-header label, .u-dark label {
-  color: #fff;
-  line-height: 1;
-}
-.o-dark-grad input, .o-dark-grad select, .o-dark-grad textarea, .o-dark-wave-grad input, .o-dark-wave-grad select, .o-dark-wave-grad textarea, .o-poly-header input, .o-poly-header select, .o-poly-header textarea, .u-dark input, .u-dark select, .u-dark textarea {
-  margin-bottom: 10px;
-  border: 1px solid #573087;
-  padding: 10px;
-  background: transparent;
-  color: #fff;
-  margin-left: 0;
-  margin-right: 10px;
-}
-.o-dark-grad input:active, .o-dark-grad input:focus-visible, .o-dark-grad select:active, .o-dark-grad select:focus-visible, .o-dark-grad textarea:active, .o-dark-grad textarea:focus-visible, .o-dark-wave-grad input:active, .o-dark-wave-grad input:focus-visible, .o-dark-wave-grad select:active, .o-dark-wave-grad select:focus-visible, .o-dark-wave-grad textarea:active, .o-dark-wave-grad textarea:focus-visible, .o-poly-header input:active, .o-poly-header input:focus-visible, .o-poly-header select:active, .o-poly-header select:focus-visible, .o-poly-header textarea:active, .o-poly-header textarea:focus-visible, .u-dark input:active, .u-dark input:focus-visible, .u-dark select:active, .u-dark select:focus-visible, .u-dark textarea:active, .u-dark textarea:focus-visible {
-  border: 1px solid #09aeef;
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
-  outline: none;
-}
-.o-dark-grad input::-webkit-input-placeholder, .o-dark-grad select::-webkit-input-placeholder, .o-dark-grad textarea::-webkit-input-placeholder, .o-dark-wave-grad input::-webkit-input-placeholder, .o-dark-wave-grad select::-webkit-input-placeholder, .o-dark-wave-grad textarea::-webkit-input-placeholder, .o-poly-header input::-webkit-input-placeholder, .o-poly-header select::-webkit-input-placeholder, .o-poly-header textarea::-webkit-input-placeholder, .u-dark input::-webkit-input-placeholder, .u-dark select::-webkit-input-placeholder, .u-dark textarea::-webkit-input-placeholder {
-  color: #fff;
-}
-.o-dark-grad input::-moz-placeholder, .o-dark-grad select::-moz-placeholder, .o-dark-grad textarea::-moz-placeholder, .o-dark-wave-grad input::-moz-placeholder, .o-dark-wave-grad select::-moz-placeholder, .o-dark-wave-grad textarea::-moz-placeholder, .o-poly-header input::-moz-placeholder, .o-poly-header select::-moz-placeholder, .o-poly-header textarea::-moz-placeholder, .u-dark input::-moz-placeholder, .u-dark select::-moz-placeholder, .u-dark textarea::-moz-placeholder {
-  color: #fff;
-}
-.o-dark-grad input:-ms-input-placeholder, .o-dark-grad select:-ms-input-placeholder, .o-dark-grad textarea:-ms-input-placeholder, .o-dark-wave-grad input:-ms-input-placeholder, .o-dark-wave-grad select:-ms-input-placeholder, .o-dark-wave-grad textarea:-ms-input-placeholder, .o-poly-header input:-ms-input-placeholder, .o-poly-header select:-ms-input-placeholder, .o-poly-header textarea:-ms-input-placeholder, .u-dark input:-ms-input-placeholder, .u-dark select:-ms-input-placeholder, .u-dark textarea:-ms-input-placeholder {
-  color: #fff;
-}
-.o-dark-grad input::-ms-input-placeholder, .o-dark-grad select::-ms-input-placeholder, .o-dark-grad textarea::-ms-input-placeholder, .o-dark-wave-grad input::-ms-input-placeholder, .o-dark-wave-grad select::-ms-input-placeholder, .o-dark-wave-grad textarea::-ms-input-placeholder, .o-poly-header input::-ms-input-placeholder, .o-poly-header select::-ms-input-placeholder, .o-poly-header textarea::-ms-input-placeholder, .u-dark input::-ms-input-placeholder, .u-dark select::-ms-input-placeholder, .u-dark textarea::-ms-input-placeholder {
-  color: #fff;
-}
-.o-dark-grad input::placeholder, .o-dark-grad select::placeholder, .o-dark-grad textarea::placeholder, .o-dark-wave-grad input::placeholder, .o-dark-wave-grad select::placeholder, .o-dark-wave-grad textarea::placeholder, .o-poly-header input::placeholder, .o-poly-header select::placeholder, .o-poly-header textarea::placeholder, .u-dark input::placeholder, .u-dark select::placeholder, .u-dark textarea::placeholder {
-  color: #fff;
-}
-.o-dark-grad select option, .o-dark-wave-grad select option, .o-poly-header select option, .u-dark select option {
-  background-color: #000;
-}
-
 .c-case-form {
   width: 800px;
   margin: 0 auto;
@@ -3568,7 +3526,7 @@ input::placeholder, textarea::placeholder {
    A TAG (links) STYLES
    ========================================================================== */
 a {
-  color: #09aeef;
+  color: #272727;
   text-decoration: none;
   cursor: pointer;
   -webkit-transition: all 250ms ease;
@@ -3576,7 +3534,7 @@ a {
 }
 
 a:hover {
-  color: rgb(6.2237903226, 120.3266129032, 165.2762096774);
+  color: rgb(0.75, 0.75, 0.75);
 }
 
 a, a:active, a:hover, a:visited {
@@ -3585,6 +3543,14 @@ a, a:active, a:hover, a:visited {
 
 a[href^="mailto:"] {
   overflow-wrap: break-word;
+}
+
+.editor-content p a:not(.gbp-button--primary), .editor-content ul li a {
+  text-decoration: underline;
+}
+
+.editor-content .post-nav-prev a {
+  text-decoration: none !important;
 }
 
 /* ==========================================================================
@@ -3667,61 +3633,54 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  gap: 18px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   position: relative;
 }
-.c-fancy-hr div:first-of-type {
-  width: calc(50% - 22px);
-  height: 2px;
-  background-color: #7B5CA1;
-  background: -webkit-gradient(linear, left top, right top, from(transparent), to(#7B5CA1));
-  background: linear-gradient(to right, transparent, #7B5CA1);
+.c-fancy-hr div {
+  width: 25px;
+  height: 16px;
+  -webkit-transform: skewX(-20deg);
+          transform: skewX(-20deg);
   position: relative;
 }
-.c-fancy-hr div:last-of-type {
-  width: calc(50% - 22px);
-  height: 2px;
-  background-color: #7B5CA1;
-  background: -webkit-gradient(linear, right top, left top, from(transparent), to(#7B5CA1));
-  background: linear-gradient(to left, transparent, #7B5CA1);
-  position: relative;
-}
-.c-fancy-hr::before {
+.c-fancy-hr div::before, .c-fancy-hr div::after {
   content: "";
-  width: 30px;
-  height: 30px;
-  border: 2px solid #7B5CA1;
-  border-radius: 50%;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: -15px;
-  margin-top: -15px;
+  width: 25px;
+  height: 16px;
+  background-color: #371b5e;
+  -webkit-transform: skewX(-20deg);
+          transform: skewX(-20deg);
+  top: 0;
 }
-.c-fancy-hr::after {
-  content: "";
-  width: 18px;
-  height: 18px;
-  background: transparent -webkit-gradient(linear, left top, left bottom, from(#9ED33F), to(#3F5419)) 0% 0% no-repeat padding-box;
-  background: transparent linear-gradient(180deg, #9ED33F 0%, #3F5419 100%) 0% 0% no-repeat padding-box;
-  border-radius: 50%;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: -9px;
-  margin-top: -9px;
+.c-fancy-hr div::before {
+  left: -37px;
+}
+.c-fancy-hr div::after {
+  right: -37px;
 }
 @media (width >= 768px) {
-  .c-fancy-hr {
-    padding-top: 100px;
-    padding-bottom: 100px;
+  .c-fancy-hr div {
+    width: 35px;
+    height: 22px;
+  }
+  .c-fancy-hr div::before, .c-fancy-hr div::after {
+    width: 35px;
+    height: 22px;
+  }
+  .c-fancy-hr div::before {
+    left: -52px;
+  }
+  .c-fancy-hr div::after {
+    right: -52px;
   }
 }
 
@@ -4637,6 +4596,34 @@ p {
   background-color: #94D33F; /* Using the Plixer green color */
   clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
   z-index: 1;
+}
+
+.c-feature-card {
+  position: relative;
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+  border-radius: 0 !important;
+}
+.c-feature-card h2, .c-feature-card h3 {
+  padding-bottom: 15px;
+  margin-bottom: 15px !important;
+  border-bottom: 2px dotted #F36B39;
+  display: inline-block;
+}
+.c-feature-card p {
+  font-size: 20px;
+}
+.c-feature-card:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background-color: #09aeef;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
 }
 
 /* ==========================================================================
@@ -7668,10 +7655,6 @@ p {
   border-top: 12px solid #94D33F;
 }
 
-.has-plixer-white-color {
-  color: unset !important;
-}
-
 .is-style-secondaryfont {
   font-family: "Raleway", sans-serif;
 }
@@ -7756,13 +7739,6 @@ div:not([class]) > .block-editor-block-list__layout > .wp-block:not([data-align^
 .tb-container > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:not([data-align^=full]) {
   max-width: 1400px !important;
   z-index: 10;
-}
-
-.dark-admin p, .dark-admin h1, .dark-admin h2, .dark-admin h3, .dark-admin h4, .dark-admin h5, .dark-admin h6, .dark-admin ul li, .dark-admin ol li {
-  color: #fff;
-}
-.dark-admin .editor-content ul:not(.inputs-list) li::before {
-  background-color: #fff;
 }
 
 .c-container-white {

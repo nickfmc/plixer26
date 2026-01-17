@@ -114,23 +114,35 @@ endif; ?>
 
 
 
-<div class="c-post-grid">
+<div class="c-resources-grid">
 
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-    <article <?php post_class('c-post-card'); ?> role="article" itemscope itemtype="https://schema.org/BlogPosting">
-            <a href="<?php the_permalink()?>"></a>
-              <?php the_post_thumbnail('large'); ?> 
-                
-                <div class="c-card__content">
-                          <h4><?php the_title(); ?></h4>
-                          <!-- the excerpt -->
-                          <p class="c-card__content-excerpt"><?php echo gdt_excerpt(25); ?>...</p>
-                          <span><time datetime="<?php the_time('Y-m-d'); ?>" itemprop="datePublished"><?php the_time('d F y'); ?></time></span>
-                              
-                        </div>
-              
-              <!-- /editor-content -->
-            </article>
+    <article <?php post_class('c-resource-card'); ?> role="article" itemscope itemtype="https://schema.org/BlogPosting">
+            <a href="<?php the_permalink()?>" class="c-resource-card__link"></a>
+            
+            <div class="c-resource-card__image">
+              <?php the_post_thumbnail('large'); ?>
+              <div class="c-resource-card__overlay"></div>
+            </div>
+            
+            <div class="c-resource-card__content">
+              <?php 
+                $terms = get_the_terms(get_the_ID(), 'resource-type');
+                if ($terms && !is_wp_error($terms)) : 
+                  $term = array_shift($terms);
+                  echo '<span class="c-resource-badge">'.$term->name.'</span>';
+                endif; 
+              ?>
+              <h4><?php the_title(); ?></h4>
+              <p class="c-resource-card__excerpt"><?php echo gdt_excerpt(20); ?></p>
+              <span class="c-resource-card__cta">
+                Learn More
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256">
+                  <path fill="currentColor" d="m218.83 130.83l-72 72a4 4 0 0 1-5.66-5.66L206.34 132H40a4 4 0 0 1 0-8h166.34l-65.17-65.17a4 4 0 0 1 5.66-5.66l72 72a4 4 0 0 1 0 5.66Z"/>
+                </svg>
+              </span>
+            </div>
+      </article>
       <!-- /article -->
 
       

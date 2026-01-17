@@ -31,9 +31,10 @@ $color-green:       #94D33F;
 
 $color-blue:       #09aeef;
 $color-blue-light: #E5F0F4;
+$color-blue-dark:  #0f3460;
 $color-green-new: #00890B;
 $color-orange: #F36B39;
-
+$color-plixer-dark: #272727;
 
 $color-purple-darker: #1a0d2d;
 
@@ -49,8 +50,8 @@ $color-white:           #FFF;
 // assign colours to variables
 $alert-color:       $color-red-400;
 $text-color:        $color-black;
-$link-color:        $color-blue;
-$link-hover:        darken($color-blue, 15%);
+$link-color:        $color-plixer-dark;
+$link-hover:        darken($color-plixer-dark, 15%);
 $border-color:      $color-gray-400;
 
 

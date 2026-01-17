@@ -155,74 +155,7 @@ add_action('admin_head', 'custom_acf_repeater_colors');
 // add_filter('admin_footer_text', 'gdt_custom_admin_footer');
 
 
-function my_custom_admin_body_class($classes) {
-  global $post;
 
-  if (isset($post)) {
-      $field_value = get_field('dark_page', $post->ID);
-
-      if ($field_value === true) {
-          $classes .= ' dark-admin';
-      }
-  }
-
-  return $classes;
-}
-
-add_filter('admin_body_class', 'my_custom_admin_body_class');
-
-function my_custom_admin_css() {
-  echo '<style>
-  .dark-admin .editor-styles-wrapper {
-      background-color: #000 !important;
-  }
-  .dark-admin .editor-styles-wrapper p, .dark-admin .editor-styles-wrapper h1, .dark-admin .editor-styles-wrapper h2, .dark-admin .editor-styles-wrapper h3, .dark-admin .editor-styles-wrapper h4, .dark-admin .editor-styles-wrapper h5, .dark-admin .editor-styles-wrapper h6, .dark-admin .editor-styles-wrapper  ul li, .dark-admin .editor-styles-wrapper ol li {
-      color: #fff ;
-  }
-  .dark-admin .editor-content ul:not(.inputs-list) li::before {
-    background-color: #fff;
-    } 
-    .dark-admin  .c-container-white {
-      color: #000;
-    }
-    .dark-admin .c-container-white p, .dark-admin .c-container-white h1, .dark-admin .c-container-white h2, .dark-admin .c-container-white h3, .dark-admin .c-container-white h4, .dark-admin .c-container-white h5, .dark-admin .c-container-white h6, .dark-admin .c-container-white  ul li, .dark-admin .c-container-white ol li {
-      color: #000;
-    }
-  </style>';
-}
-
-add_action('admin_head', 'my_custom_admin_css');
-
-
-add_action('rest_api_init', function () {
-  register_rest_route('myplugin/v1', '/dark_page/(?P<id>\d+)', array(
-    'methods' => 'POST',
-    'callback' => 'myplugin_update_dark_page',
-    'permission_callback' => '__return_true', 
-  ));
-});
-
-function myplugin_update_dark_page($data) {
-  $post_id = $data['id'];
-  $field_value = $data['value'] === 'true';
-  update_field('dark_page', $field_value, $post_id);
-  return new WP_REST_Response('Field value updated', 200);
-}
-
-add_action('rest_api_init', function () {
-  register_rest_route('myplugin/v1', '/dark_page/(?P<id>\d+)', array(
-    'methods' => 'GET',
-    'callback' => 'myplugin_get_dark_page',
-    'permission_callback' => '__return_true', 
-  ));
-});
-
-function myplugin_get_dark_page($data) {
-  $post_id = $data['id'];
-  $field_value = get_field('dark_page', $post_id);
-  return new WP_REST_Response($field_value, 200);
-  error_log('dark_page field value: ' . var_export($field_value, true));
-}
 
 
 
