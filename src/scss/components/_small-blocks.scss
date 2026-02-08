@@ -58,39 +58,34 @@
 // lower CTA
 .c-lower-cta {
     position: relative;
-    text-align: center;
-    background: rgb(63,84,25);
-    background: linear-gradient(90deg, rgba(63,84,25,1) 1%, rgba(120,160,48,1) 50%, rgba(63,84,25,1) 100%); 
-    border-top: 10px solid #5a7724;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    text-align: left;
+    background: #fff;
+    padding-top: 30px;
+    padding-bottom: 50px;
     padding-left: 25px;
     padding-right: 25px;
-    &::before {
-        content: '';
-        width: 100%;
-        height: 100%;
-        background-image: url('../img/cta_poly.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: 0.7;
-    }
+    // &::before {
+    //     content: '';
+    //     width: 100%;
+    //     height: 100%;
+    //     background-image: url('../img/cta_poly.png');
+    //     background-size: cover;
+    //     background-repeat: no-repeat;
+    //     background-position: center;
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     opacity: 0.7;
+    // }
     > * {
         position: relative;
         z-index: 1;
     }
-    color: #fff;
+    color: $color-plixer-dark;
     p,h2,h3,h4,h5,h6 {
-        color: #fff;
+        color: $color-plixer-dark;
     }
-    @media(width >= $bp-medium) {
-    padding-top: 100px;
-    padding-bottom: 100px;
-    } 
+
     p {
         font-size: clamped(18px, 21px);
         font-family: $font-secondary;
@@ -99,14 +94,94 @@
     }
 
     .cta_button.btn {
-        padding: 20px 45px;
-        background: transparent linear-gradient(96deg, #3D1E69 0%, #593189 100%) 0% 0% no-repeat padding-box;
+        padding: 10px 20px;
+        background: #005607;
         transition: all 0.3s ease-in-out; // Add transition for smooth effect
         font-size: 21px !important;
         &:hover {
-            background: transparent linear-gradient(96deg, #593189 0%, #3D1E69 100%) 0% 0% no-repeat padding-box; // Reverse gradient on hover
+            background: darken(#005607, 5%); // Reverse gradient on hover
         }
-}
+    }
+
+    // 2-column layout
+    .lower-cta__content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        align-items: center;
+        justify-items: stretch;
+
+        @media(width >= $bp-small) {
+            gap: 40px;
+        }
+
+        @media(width >= $bp-medium) {
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        @media(width >= $bp-large) {
+            gap: 70px;
+        }
+    }
+
+    .lower-cta__text {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        min-width: 0; // Prevents flex item from overflowing
+
+        h2, h3 {
+            color: $color-blue;
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+
+        p {
+            font-weight: 400;
+            margin: 0 0 15px 0;
+
+            &:last-of-type {
+                margin-bottom: 25px;
+            }
+        }
+
+        @media(width >= $bp-medium) {
+            gap: 25px;
+
+            p {
+                margin: 0 0 20px 0;
+
+                &:last-of-type {
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+
+    .lower-cta__image {
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .c-header-img-clip {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    // Ensure button has proper spacing
+    .c-btn-primary {
+        align-self: flex-start;
+        margin-top: 10px;
+
+        @media(width >= $bp-medium) {
+            margin-top: 15px;
+        }
+    }
 }
 
 /* Add gradient border to CTA image */
@@ -214,54 +289,54 @@ height: 14px;
     font-family: $font-secondary;
   }
 
-  .c-icon-divider {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    .gb-icon {
-        // margin-left:  auto !important;
-        // margin-right: auto !important;
-        margin-bottom: 0 !important;
-        background-color: #000;
-        border: 2px solid #795d9e;
-        border-radius: 100%;
-        font-size: 12px; 
-        line-height: 1;
-        position: relative;
-        margin: 0;
-        height: 120px;
-        width: 120px;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        font-size: 55px;
-        margin-bottom: 20px;
-        flex: 0 0 auto;
-    }
+//   .c-icon-divider {
+//     width: 100%;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     margin-bottom: 20px;
+//     .gb-icon {
+//         // margin-left:  auto !important;
+//         // margin-right: auto !important;
+//         margin-bottom: 0 !important;
+//         background-color: #000;
+//         border: 2px solid #795d9e;
+//         border-radius: 100%;
+//         font-size: 12px; 
+//         line-height: 1;
+//         position: relative;
+//         margin: 0;
+//         height: 120px;
+//         width: 120px;
+//         align-items: center;
+//         justify-content: center;
+//         display: flex;
+//         font-size: 55px;
+//         margin-bottom: 20px;
+//         flex: 0 0 auto;
+//     }
     
-    &::after {
-        content: '';
-        width: calc(50% - 22px);
-       flex: 1;
-        height: 2px;
-        background-color: $color-purple-one;
-        background: linear-gradient(to left, transparent,    $color-purple-one);
+//     &::after {
+//         content: '';
+//         width: calc(50% - 22px);
+//        flex: 1;
+//         height: 2px;
+//         background-color: $color-purple-one;
+//         background: linear-gradient(to left, transparent,    $color-purple-one);
 
-    }
+//     }
 
-    &::before {
-        content: '';
-        width: calc(50% - 22px);
-        flex: 1;
-        height: 2px;
-        background-color: $color-purple-one;
-        background: linear-gradient(to right, transparent,    $color-purple-one);
+//     &::before {
+//         content: '';
+//         width: calc(50% - 22px);
+//         flex: 1;
+//         height: 2px;
+//         background-color: $color-purple-one;
+//         background: linear-gradient(to right, transparent,    $color-purple-one);
 
 
-    }
-  }
+//     }
+//   }
 
   .c-partner-card {
     transition: $transition-ease;

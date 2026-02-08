@@ -1,0 +1,116 @@
+{
+    "key": "group_staff_popup_block",
+    "title": "Staff Member Card Block",
+    "fields": [
+        {
+            "key": "field_staff_image",
+            "label": "Staff Photo",
+            "name": "staff_image",
+            "type": "image",
+            "instructions": "Upload a photo of the staff member (recommended: square image, at least 400x400px)",
+            "required": 1,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg,jpeg,png,webp"
+        },
+        {
+            "key": "field_staff_name",
+            "label": "Name",
+            "name": "staff_name",
+            "type": "text",
+            "instructions": "Full name of the staff member",
+            "required": 1,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "John Doe",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_staff_title",
+            "label": "Job Title",
+            "name": "staff_title",
+            "type": "text",
+            "instructions": "Job title or position",
+            "required": 1,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Senior Developer",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_staff_bio",
+            "label": "Biography",
+            "name": "staff_bio",
+            "type": "wysiwyg",
+            "instructions": "Full biography that will appear in the popup",
+            "required": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_staff_external_link",
+            "label": "External Link (Optional)",
+            "name": "staff_external_link",
+            "type": "url",
+            "instructions": "If provided, clicking this card will open this URL instead of showing a bio popup. Leave blank to use popup bio.",
+            "required": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https://example.com"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/staff-popup"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}

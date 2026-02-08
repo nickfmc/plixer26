@@ -41,9 +41,14 @@ background-position: right;
 
 .o-wrapper-wide {
     display: flex;
+    align-items: center;
 }
 
 
+}
+
+.c-hero-dark  {
+margin-bottom: 0;
 }
 
 .c-header-img-clip, .u-img-clip {
@@ -51,6 +56,10 @@ background-position: right;
     // height: 320px;
     height: auto;
     aspect-ratio: 1.82/1;
+    
+    // With aspect-ratio 1.82:1, we can use fixed percentages that maintain consistent angles
+    // 23% offset creates a 67.3deg angle that stays consistent due to aspect-ratio
+    
 img {
     border: 1px solid #593189;
    clip-path: polygon(23% 0%, 100% 0%, 77% 100%, 0% 100%);  
@@ -148,6 +157,15 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex: 1;
+    min-width: 0; // Important for flex overflow control
+    
+    > div:not(.a2a_kit) {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        gap: 20px;
+    }
 }
 
 .a2a_kit {
@@ -245,7 +263,6 @@ img {
     position: relative;
     background-color: $color-plixer-gray;
     border: 1px solid $color-plixer-gray;
-    border-radius: 10px;
     transition: $transition-ease;
     min-height: 400px;
     display: flex;
@@ -496,19 +513,21 @@ img {
     
     &__header {
         padding: 40px 30px 30px;
-        background: linear-gradient(135deg, $color-purple-dark 0%, $color-purple-one 100%);
+        background: $color-blue-light;
         color: #fff;
         
         h3 {
             margin: 0 0 10px;
             font-size: 28px;
             font-weight: 700;
+            color: $color-plixer-dark;
         }
         
         p {
             margin: 0;
             font-size: 16px;
             opacity: 0.95;
+            color: $color-plixer-dark;
             font-family: $font-secondary;
         }
     }

@@ -34,20 +34,21 @@ body.elementor-page > div.elementor {
    text-transform: uppercase;
    margin-top: 20px;
    cursor: pointer;
-   padding: 20px 30px;
+   font-weight: 400;
+   padding: 0.75rem 3rem;
    font-family: $font-secondary;
    text-shadow: 0px 2px 3px #0000004D;
-   background: transparent linear-gradient(87deg, #78A030 0%, #78A030 100%) 0% 0% no-repeat padding-box;
+   background: #005607;
    transition: background 0.3s ease-in-out; // Add transition for smooth effect
 
    &:hover {
-      background: transparent linear-gradient(87deg, #5C7A22 0%, #5C7A22 100%) 0% 0% no-repeat padding-box; // Slightly darker green on hover
+      background: darken(#005607, 5%); // Slightly darker green on hover
    }
 }
 
 #cta_button_159093_60542602-76b0-48f3-8b07-98eccc31de88 {
    display: inline-block;
-   padding: 10px 23px;
+   padding:0.75rem 3rem;
    letter-spacing: 1.8px;
    margin-top: 0;
 }
@@ -76,13 +77,12 @@ body.elementor-page > div.elementor {
 }
 
 .u-purple-hs {
-   .cta_button.btn, a {
-      background: transparent linear-gradient(96deg, #593189 0%, #3D1E69 100%) 0% 0% no-repeat padding-box !important; // Reverse gradient on hover
-      padding: 20px 37px !important;
+   .cta_button.btn, a { 
+      background-color: #005607; 
+      padding: 10px 20px !important;
       font-weight: 700;
       &:hover {
-          background: transparent linear-gradient(96deg, #593189 100%, #3D1E69 0%) 0% 0% no-repeat padding-box !important; // Reverse gradient on hover
-      }
+ background-color: darken(#005607, 5%);      }
    }
 }
 
@@ -117,10 +117,10 @@ body.elementor-page > div.elementor {
       margin-top: 0;
       border-radius: 10px !important;
       color: #fff;
-      background: transparent linear-gradient(87deg, #78A030 0%, #78A030 100%) 0% 0% no-repeat padding-box;
+      background: #005607;
       transition: background 0.3s ease-in-out; // Add transition for smooth effect
       &:hover {
-         background: transparent linear-gradient(87deg, #5C7A22 0%, #5C7A22 100%) 0% 0% no-repeat padding-box; // Slightly darker green on hover
+         background: darken(#005607, 5%);
       }
     }
 }
@@ -129,7 +129,7 @@ body.elementor-page > div.elementor {
    width: 960px;
    margin: auto;
    max-width: 100%;
-   border-bottom: 1px dotted $color-purple-one;
+   border-bottom: 1px dotted $color-green-new;
    margin-bottom: 30px;
    h2 {
       font-size: clamped(20px, 23px);
@@ -146,12 +146,12 @@ body.elementor-page > div.elementor {
 }
 
 // accessibility
-$focus-color: $color-green; 
+$focus-color: $color-orange; 
 
 // Create a placeholder for focus styles
 %focus-outline {
-  outline: 2px solid $focus-color !important;
-  outline-offset: -2px;
+  outline: 1px dashed $focus-color !important;
+  outline-offset: 2px;
 }
 
 a:focus,
@@ -201,9 +201,6 @@ select:focus,
    
 }
 
-.resource-type-case-study h2 {
-   color: $color-green;
-}
 
 
 // From Customizer
@@ -215,12 +212,12 @@ select:focus,
 	height: 100%;
 	top: 0;
 	left: 0;
-	background-image: linear-gradient(180deg,rgba(255,255,255,0) 400px,rgba(55, 27, 94, 0.9) 400px)
+	background-image: linear-gradient(180deg,rgba(255,255,255,0) 400px,rgba(55, 27, 94, 0.95) 400px)
 }
 
 @media screen and (max-width: 768px) {
 	.u-pur-tran-grad::after {
-		background-image: linear-gradient(180deg,rgba(255,255,255,0) 50px,rgba(55, 27, 94, 0.9) 50px)
+		background-image: linear-gradient(180deg,rgba(255,255,255,0) 50px,rgba(55, 27, 94, 0.95) 50px)
 }
 	}
 
@@ -566,3 +563,106 @@ position: relative;
 .page-id-64155 .form-field  input {
 	color: #000 !important;
 }
+
+.c-legacy-box {
+   background: #fff !important;
+   border-left: 10px solid #E4E9ED !important;
+   box-shadow: 0px 2px 12px rgba(0,0,0,0.06) !important;
+   justify-content: flex-start !important;
+   align-items: flex-start !important;
+   padding-top: 30px !important;
+   .gb-icon {
+      color: $color-gray-700 !important;
+      svg {
+         font-size: 3rem !important;
+         height: 1em !important;
+         width: 1em !important;
+      }
+   }
+   h4,p {
+      text-align: left !important;
+   }
+   &::after {
+      position: absolute;
+  content: "";
+  right: -20px;
+  width: 0px;
+  height: 0px;
+  border-top-color: rgba(0,138,11,0);
+  transform: rotate(90deg);
+  bottom: 20px;
+  border-right: 40px solid var(--wp--preset--color--plixer-blue,#09aeef);
+  border-bottom: 40px solid rgba(10,175,240,0);
+  border-left: 40px solid rgba(10,175,240,0);
+   }
+}
+
+.c-home-slide {
+      position: relative;
+      overflow: hidden;
+
+   //    &::after {
+   //    content: '';
+   //    position: absolute;
+   //    top: 0;
+   //    left: 0;
+   //    width: 100%;
+   //    height: 100%;
+   //    clip-path: polygon(13% 0,94% 0,82% 100%,0 100%);
+   //    background-color: $color-blue-light;
+   // }
+}
+
+
+.o-clipped-right-topper {
+   position: relative;
+   overflow: hidden;
+
+   &::after {
+      content: '';
+      position: absolute; 
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      clip-path: polygon(0 0, 82% 0, 75% 100%, 0 100%);
+   }
+
+   &::before {
+      content: '';
+      position: absolute;
+      top: -8%;
+      left: 1%;
+      width: 100%;
+      height: 100%;
+      background-color: $color-orange;
+      clip-path: polygon(0 0,82% 0,75% 100%,0 100%);
+   }
+}
+
+.o-clipped-right-img {
+   position: relative;
+
+   &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      @media(width >= $bp-medium) {
+      clip-path: polygon(0 0,74.6% 0,61% 100%,0 100%);
+      
+      } 
+   }
+}
+
+
+.maw-slider__arrow {
+   color: $color-green-new !important;
+   &:hover {
+      background-color: $color-green-new !important;
+      color: #fff !important;
+   }
+}
+

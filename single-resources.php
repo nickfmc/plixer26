@@ -22,8 +22,7 @@
                     ?>
                   </div>
                   <h1><?php the_title(); ?></h1>
-                </div>
-                            <!-- AddToAny BEGIN -->
+                                     <!-- AddToAny BEGIN -->
                 <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
                 <a class="a2a_button_x"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" d="M9.294 6.928L14.357 1h-1.2L8.762 6.147L5.25 1H1.2l5.31 7.784L1.2 15h1.2l4.642-5.436L10.751 15h4.05L9.294 6.928ZM7.651 8.852l-.538-.775L2.832 1.91h1.843l3.454 4.977l.538.775l4.491 6.47h-1.843l-3.664-5.28Z"/></svg></a>
                 <a class="a2a_button_facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="38.41" viewBox="0 0 320 512"><path fill="currentColor" d="m279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></a>
@@ -31,6 +30,8 @@
                 </div>
                 <script async src="https://static.addtoany.com/menu/page.js"></script>
                 <!-- AddToAny END -->
+                </div>
+         
               </div>
               <div class="c-header-img-clip">
                 <?php the_post_thumbnail('large');?>

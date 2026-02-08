@@ -1,0 +1,116 @@
+{
+    "key": "group_timeline_block",
+    "title": "Timeline Block",
+    "fields": [
+        {
+            "key": "field_timeline_heading",
+            "label": "Heading",
+            "name": "timeline_heading",
+            "type": "text",
+            "instructions": "Optional heading for the timeline section",
+            "required": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Our History",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_timeline_subheading",
+            "label": "Subheading",
+            "name": "timeline_subheading",
+            "type": "textarea",
+            "instructions": "Optional subheading\/description",
+            "required": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_timeline_steps",
+            "label": "Timeline Steps",
+            "name": "timeline_steps",
+            "type": "repeater",
+            "instructions": "Add timeline steps (approximately 7 recommended)",
+            "required": 1,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_timeline_year",
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Step",
+            "sub_fields": [
+                {
+                    "key": "field_timeline_year",
+                    "label": "Year\/Title",
+                    "name": "year",
+                    "type": "text",
+                    "instructions": "Year or title for this step (e.g., 1999)",
+                    "required": 1,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "1999",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_timeline_content",
+                    "label": "Content",
+                    "name": "content",
+                    "type": "textarea",
+                    "instructions": "Description for this timeline step",
+                    "required": 1,
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "Known as IT Helpdesk, a network management and IT consulting firm...",
+                    "maxlength": "",
+                    "rows": 4,
+                    "new_lines": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/timeline"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}

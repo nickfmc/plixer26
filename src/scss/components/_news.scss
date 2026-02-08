@@ -41,6 +41,8 @@
     }
     
     // Blue angled section background
+    // Using percentage-based clip-path - angle will vary slightly with viewport
+    // but avoids container-type collapse issue
     &::before {
         content: "";
         position: absolute;

@@ -1,0 +1,16 @@
+{
+    "name": "timeline",
+    "title": "Timeline",
+    "description": "A responsive timeline block with steps showing year and description.",
+    "icon": "clock",
+    "keywords": ["timeline", "history", "steps", "chronology", "milestones", "events"],
+    "category": "myblocks",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "timeline.php"
+    },
+    "example": {
+        "attributes": {}
+    },
+    "align": "full"
+}

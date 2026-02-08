@@ -36,12 +36,27 @@
 				{
 					"slug": "cool-grey",
 					"color": "#E4E9EE",
-					"name": "Cool Grey" 
+					"name": "Cool Grey"
+				},
+				{
+					"slug": "dark-grey",
+					"color": "#272727",
+					"name": "Dark Grey" 
 				},
 				{
 					"slug": "plixer-grey",
 					"color": "#EFEFEF",
 					"name": "Plixer Grey" 
+				},
+				{
+					"slug": "plixer-orange",
+					"color": "#FFA500",
+					"name": "Plixer Orange"
+				},
+				{
+					"slug": "plixer-purple",
+					"color": "#4B3672",
+					"name": "Plixer Purple"
 				}
 			]
 		

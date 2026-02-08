@@ -1,0 +1,205 @@
+/* ==========================================================================
+   TIMELINE BLOCK
+   Responsive timeline component with alternating left/right steps
+   ========================================================================== */
+
+.c-timeline {
+    padding: 40px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    @media (max-width: $bp-medium) {
+        padding: 30px 20px;
+    }
+}
+
+/* Header Section
+   ========================================================================== */
+
+.c-timeline__header {
+    text-align: center;
+    margin-bottom: 40px;
+    
+    @media (max-width: $bp-medium) {
+        margin-bottom: 30px;
+    }
+}
+
+.c-timeline__heading {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    
+    @media (max-width: $bp-medium) {
+        font-size: 1.75rem;
+    }
+}
+
+.c-timeline__subheading {
+    font-size: 1.4rem;
+    color: $color-gray-700;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Timeline Structure
+   ========================================================================== */
+
+.c-timeline__wrapper {
+    position: relative;
+    padding: 0 20px;
+    
+    @media (max-width: $bp-medium) {
+        padding: 0;
+    }
+}
+
+.c-timeline__line {
+    position: absolute;
+    width: 3px;
+    background: $color-purple-mid; 
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    @media (max-width: $bp-medium) {
+        left: 8px;
+        transform: none;
+    }
+}
+
+.c-timeline__items {
+    position: relative;
+}
+
+/* Timeline Items
+   ========================================================================== */
+
+.c-timeline__item {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50%;
+    position: relative;
+    margin-bottom: 30px;
+    opacity: 0.3;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    
+    @media (max-width: $bp-medium) {
+        padding-right: 20px;
+        padding-left: 35px;
+        margin-bottom: 25px;
+        transform: translateY(20px);
+    }
+    
+    &:last-child {
+        margin-bottom: 0;
+    }
+    
+    &.is-active {
+        opacity: 1;
+        transform: translateY(0);
+        
+        .c-timeline__content {
+            border-left: 4px solid $color-purple-mid;
+            box-shadow: 0 4px 16px rgba(87, 48, 135, 0.15);
+            
+            @media (max-width: $bp-medium) {
+                border-left: 4px solid $color-purple-mid;
+            }
+        }
+    }
+}
+
+.c-timeline__item--right {
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: 50%;
+    
+    .c-timeline__content {
+        padding-left: 30px;
+        padding-right: 25px;
+        
+        @media (max-width: $bp-medium) {
+            padding: 18px 15px;
+        }
+    }
+    
+    &.is-active .c-timeline__content {
+        border-left: none;
+        border-right: 4px solid $color-purple-mid;
+        box-shadow: 0 4px 16px rgba(87, 48, 135, 0.15);
+        
+        @media (max-width: $bp-medium) {
+            border-right: none;
+            border-left: 4px solid $color-purple-mid;
+        }
+    }
+    
+    @media (max-width: $bp-medium) {
+        justify-content: flex-start;
+        padding-left: 35px;
+        padding-right: 20px;
+    }
+}
+
+/* Timeline Content
+   ========================================================================== */
+
+.c-timeline__content {
+    background: $color-white;
+    padding: 20px 25px;
+    padding-right: 30px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    max-width: 450px;
+    position: relative;
+    transition: $transition-ease;
+    border-left: 4px solid transparent;
+    
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+    
+    @media (max-width: $bp-medium) {
+        padding: 18px 15px;
+        max-width: none;
+        width: 100%;
+    }
+}
+
+.c-timeline__year {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $color-purple-mid;
+    margin: 0 0 8px 0;
+    font-family: $font-primary;
+    
+    @media (max-width: $bp-medium) {
+        font-size: 1.25rem;
+        margin-bottom: 6px;
+    }
+}
+
+.c-timeline__text {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: $color-gray-700;
+    margin: 0;
+}
+
+/* Admin Preview Styles
+   ========================================================================== */
+
+.c-timeline.is-admin {
+    .c-timeline__content:hover {
+        transform: none;
+    }
+    
+    .c-timeline__item {
+        opacity: 1;
+    }
+}

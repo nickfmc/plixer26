@@ -1,0 +1,19 @@
+{
+    "name": "staff-popup",
+    "title": "Staff Member Card",
+    "description": "A staff member card with image, name, and title that opens a popup with full bio.",
+    "icon": "groups",
+    "keywords": ["staff", "team", "bio", "popup", "employee", "member", "profile"],
+    "category": "myblocks",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "staff-popup.php"
+    },
+    "example": {
+        "attributes": {}
+    },
+    "supports": {
+        "align": false,
+        "multiple": true
+    }
+}

@@ -15,9 +15,9 @@
 
     /* Default separator styles */
     hr, hr.wp-block-separator {
-      width: 60%;
-      height: 2px;
-      background: transparent linear-gradient(90deg, #59318900 0%, #593189 49%, #59318900 100%) 0% 0% no-repeat;
+     width: 193px;
+  height: 20px;
+      background: url('../img/sqew_square.svg');
       margin: 15px auto;
       &.is-style-wide {
           width: 100%;
