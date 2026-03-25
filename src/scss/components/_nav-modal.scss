@@ -2,17 +2,17 @@
    VARIABLES
    ========================================================================== */
    
-   $color-close: #78a030;
+   $color-close: $color-purple-dark;
    $color-dividing-line: transparent; 
    $color-item-bg: transparent;
-   $color-open-btn: #78a030;
-   $color-close-btn: #78a030 !important;
-   $color-item-bg-hover: rgba(124, 93, 162, 0.3);
+   $color-open-btn: $color-green-new;
+   $color-close-btn: $color-green-new !important;
+   $color-item-bg-hover: #fff;
    $color-menu-bg: transparent;
    $header-height: 80px;
    $header-bg-color: #fff;
-   $color-menu-item:  #fff;
-   $color-menu-sub-item:  #fff;
+   $color-menu-item:  $color-purple-dark;
+   $color-menu-sub-item:  $color-purple-dark;
    $nav-item-alignment: left;
 
 
@@ -352,19 +352,10 @@ a {
 
  .hc-offcanvas-nav .nav-wrapper {
   background: rgb(0,0,0);
-  background: linear-gradient(180deg, rgba(0,0,0,1) 27%, rgba(66,42,101,1) 100%);
+  background: $color-blue-light;
   position: relative;
  }
- .hc-offcanvas-nav .nav-wrapper::after {
-    content: "";
-    background-image: url('../img/bg-poly.png');
-    background-position: 100% 100%;
-    background-repeat: no-repeat;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    height: 100%;
- }
+
  .hc-offcanvas-nav .nav-content > h2, .hc-offcanvas-nav .nav-content > h3, .hc-offcanvas-nav .nav-content > h4, .hc-offcanvas-nav .nav-content > h5, .hc-offcanvas-nav .nav-content > h6 {
    font-size: 24px;
    font-weight: normal;
@@ -413,7 +404,7 @@ a {
    border-bottom: 1px solid #5E859F;
  }
  .hc-offcanvas-nav .nav-highlight {
-   background: rgba(124, 93, 162, 0.3);
+
  }
  .hc-offcanvas-nav .nav-wrapper > .nav-content > ul:first-of-type > li:first-child:not(.nav-back):not(.nav-close) > .nav-item-wrapper > .nav-item-link {
    border-top: none;
@@ -640,13 +631,13 @@ a {
    background: transparent;
  }
  .hc-offcanvas-nav.nav-levels-expand li.level-open, .hc-offcanvas-nav.nav-levels-none li.level-open {
-   background: rgba(124, 93, 162, 0.3);
+   background: #fff;
  }
  .hc-offcanvas-nav.nav-levels-expand li.level-open > .nav-item-wrapper > a, .hc-offcanvas-nav.nav-levels-none li.level-open > .nav-item-wrapper > a {
    border-bottom: 1px solid $color-dividing-line;
  }
  .hc-offcanvas-nav.nav-levels-expand li.level-open > .nav-item-wrapper > a:hover, .hc-offcanvas-nav.nav-levels-none li.level-open > .nav-item-wrapper > a:hover {
-   background: rgba(124, 93, 162, 0.3);
+   background: #fff;
  }
  .hc-offcanvas-nav.nav-levels-expand li.level-open > .nav-item-wrapper > .nav-next span::before,
  .hc-offcanvas-nav.nav-levels-expand li.level-open > .nav-item-wrapper > a > .nav-next span::before, .hc-offcanvas-nav.nav-levels-none li.level-open > .nav-item-wrapper > .nav-next span::before,

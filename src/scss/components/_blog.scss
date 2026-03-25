@@ -34,14 +34,41 @@ flex-direction: column;
 background-image: url(../img/interior-header-bg.svg);
 background-repeat: no-repeat;
 background-size: cover;
+background-position: 87%;
+@media(width >= 700px) {
 background-position: right;
+} 
 @media(width >= $bp-large) {
     flex-direction: row;
 } 
 
+.c-article-header-content {
+    width: 100%;
+
+    @media(width >= $bp-large) {
+    width: 60%;
+
+    } 
+}
+
+.c-header-img-clip {
+    width: 80%; 
+
+    @media(width >= $bp-large) {
+    width: 40%;
+
+    } 
+}
+
+
 .o-wrapper-wide {
     display: flex;
     align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    @media(width >= $bp-large) {
+    flex-direction: row;
+    } 
 }
 
 
@@ -51,7 +78,7 @@ background-position: right;
 margin-bottom: 0;
 }
 
-.c-header-img-clip, .u-img-clip {
+.c-header-img-clip, .u-img-clip, .c-img-clip {
     position: relative;
     // height: 320px;
     height: auto;
@@ -77,6 +104,10 @@ img {
     background-color: $color-blue;
     clip-path: polygon(23% 0%, 100% 0%, 70% 100%, 0% 100%);  
 }
+}
+
+.c-img-clip img {
+    width: 100%;
 }
 
 // Resource image treatment - cleaner card style for images with text

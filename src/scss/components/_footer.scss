@@ -3,15 +3,15 @@
    ========================================================================== */
 
 .c-page-footer {
-  border-top: 8px solid #1a1a1a;
-  background-color: #000;
+  border-top: 8px solid $color-blue;
+  background-color: $color-blue-light;
   padding-left: 25px;
   padding-right: 25px;
   padding-bottom: 80px;
   padding-top: 100px;
-  color: #fff;
+  color: #272727;
   .c-logo-footer  {
-    img {
+    img, svg {
       margin-top: 10px;
       width: 250px;
       margin-right: auto;
@@ -26,9 +26,12 @@
       
       } 
     }
+    svg {
+      fill: #272727;
+    }
   }
   a {
-    color: #fff;
+    color: #272727;
   }
 }
 
@@ -86,7 +89,7 @@
 .c-lower-footer {
   padding-top: 45px;
   border-top: 1px dashed rgba(255, 255, 255, 0.4);
-  color: #fff;
+  color: #272727;
   display: flex;
   flex-flow: column-reverse;
   justify-content: space-between;
@@ -96,7 +99,7 @@
     text-align: center;
   }
   a  {
-    color: #fff;
+    color: #272727;
   }
   @media(width >= 875px) {
   flex-direction: row;
@@ -115,10 +118,10 @@
   margin-bottom: 40px;
   gap: 20px;
   a {
-  color: $color-green;
+  color: $color-blue;
   width: 56px;
   height: 56px;
-  border: 2px solid $color-purple-one;
+  border: 2px solid $color-blue;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,7 +134,7 @@
       height: 24px;
   }
   &:hover {
-      background-color: $color-purple-one;
+      background-color: $color-blue;
       color: #fff;
   }
 }

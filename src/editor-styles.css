@@ -3255,8 +3255,13 @@ body {
   font-family: "Raleway", sans-serif;
   line-height: 2;
   -webkit-overflow-scrolling: touch;
-  padding-top: 117px !important;
+  padding-top: 80px !important;
   overflow-x: clip;
+}
+@media (width >= 1106px) {
+  body {
+    padding-top: 117px !important;
+  }
 }
 
 /* ==========================================================================
