@@ -4,7 +4,7 @@
 // ========================================================
 
 // Landing Page Body Override
-body.page-template-template-landing-page {
+body.page-template-template-landing-page, body.pg-landingpage-simple {
   overflow-x: hidden;
   padding-top: 0 !important;
 
@@ -20,10 +20,10 @@ body.page-template-template-landing-page {
   }
   
 //   Hide admin bar
-  #wpadminbar {
-    display: none !important;
-  }
-}
+  // #wpadminbar { 
+  //   display: none !important;
+  // }
+} 
 
 // Main Wrapper
 .landing-page-wrapper {

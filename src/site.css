@@ -10398,17 +10398,14 @@ body.demo-popup-open {
           animation: popupSlideIn 0.4s ease forwards;
 }
 
-body.page-template-template-landing-page {
+body.page-template-template-landing-page, body.pg-landingpage-simple {
   overflow-x: hidden;
   padding-top: 0 !important;
 }
-body.page-template-template-landing-page #c-page-header {
+body.page-template-template-landing-page #c-page-header, body.pg-landingpage-simple #c-page-header {
   display: none !important;
 }
-body.page-template-template-landing-page #c-page-footer {
-  display: none !important;
-}
-body.page-template-template-landing-page #wpadminbar {
+body.page-template-template-landing-page #c-page-footer, body.pg-landingpage-simple #c-page-footer {
   display: none !important;
 }
 
@@ -12605,6 +12602,23 @@ select:focus,
 @media (width >= 768px) {
   .o-clipped-right-img::after {
     clip-path: polygon(0 0, 74.6% 0, 61% 100%, 0 100%);
+  }
+}
+
+.o-clipped-left-img {
+  position: relative;
+}
+.o-clipped-left-img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+@media (width >= 768px) {
+  .o-clipped-left-img::after {
+    clip-path: polygon(25.4% 0, 100% 0, 100% 100%, 39% 100%);
   }
 }
 

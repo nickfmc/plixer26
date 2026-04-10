@@ -137,4 +137,61 @@ add_action( 'wp', function() {
 global $content_width;
 $content_width = 920;
 
+/**
+ * Disable Yoast SEO schema output when custom schema field is populated
+ * This prevents duplicate schema markup on pages
+ */
+function plixer_disable_yoast_schema_when_custom_exists( $data ) {
+    // Only run on singular pages/posts
+    if ( ! is_singular() ) {
+        return $data;
+    }
+    
+    // Check if ACF function exists and if custom schema field has content
+    if ( function_exists( 'get_field' ) ) {
+        $schema_markup = get_field( 'schema_json_ld' );
+        
+        // If custom schema exists, disable Yoast's schema
+        if ( ! empty( trim( $schema_markup ) ) ) {
+            return false;
+        }
+    }
+    
+    return $data;
+}
+add_filter( 'wpseo_json_ld_output', 'plixer_disable_yoast_schema_when_custom_exists', 10, 1 );
+
+/**
+ * Output Schema JSON-LD markup in the page head
+ * Uses ACF field 'schema_json_ld' from the current page/post
+ */
+function plixer_output_schema_markup() {
+    // Only run on singular pages/posts
+    if ( ! is_singular() ) {
+        return;
+    }
+    
+    // Check if ACF function exists and get the field value
+    if ( function_exists( 'get_field' ) ) {
+        $schema_markup = get_field( 'schema_json_ld' );
+        
+        // Output the schema if it exists and is not empty
+        if ( ! empty( $schema_markup ) ) {
+            // Trim whitespace
+            $schema_markup = trim( $schema_markup );
+            
+            // Validate it's valid JSON (optional but recommended)
+            $is_valid_json = json_decode( $schema_markup );
+            
+            if ( $is_valid_json !== null ) {
+                echo "\n<!-- Custom Schema.org JSON-LD Markup (Yoast schema disabled) -->\n";
+                echo '<script type="application/ld+json">' . "\n";
+                echo $schema_markup . "\n";
+                echo '</script>' . "\n";
+            }
+        }
+    }
+}
+add_action( 'wp_head', 'plixer_output_schema_markup', 99 );
+
 ?>

@@ -1,0 +1,51 @@
+{
+    "key": "group_page_schema_markup",
+    "title": "Schema Markup",
+    "fields": [
+        {
+            "key": "field_schema_json_ld",
+            "label": "Schema JSON-LD",
+            "name": "schema_json_ld",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Paste your schema.org JSON-LD markup here. It will be output in the page head within a &lt;script type=\"application\/ld+json\"&gt; tag.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 15,
+            "placeholder": "{\n  \"@context\": \"https:\/\/schema.org\",\n  \"@type\": \"WebPage\",\n  ...\n}",
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 100,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}
