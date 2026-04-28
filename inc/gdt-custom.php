@@ -194,4 +194,355 @@ function plixer_output_schema_markup() {
 }
 add_action( 'wp_head', 'plixer_output_schema_markup', 99 );
 
+/**
+ * Disable Yoast SEO schema on specific resource-type taxonomy archive pages
+ */
+function plixer_disable_yoast_schema_for_resource_type_archives( $data ) {
+    $targeted_terms = array( 'data-sheet', 'webinars', 'case-study', 'whitepaper' );
+
+    if ( is_tax( 'resource-type' ) ) {
+        $term = get_queried_object();
+        if ( $term && isset( $term->slug ) && in_array( $term->slug, $targeted_terms, true ) ) {
+            return false;
+        }
+    }
+
+    return $data;
+}
+add_filter( 'wpseo_json_ld_output', 'plixer_disable_yoast_schema_for_resource_type_archives', 10, 1 );
+
+/**
+ * Output Schema JSON-LD markup for specific resource-type taxonomy archive pages
+ * Covers: data-sheet, webinars, case-study, whitepaper
+ */
+function plixer_output_resource_type_schema() {
+    if ( ! is_tax( 'resource-type' ) ) {
+        return;
+    }
+
+    $term = get_queried_object();
+    if ( ! $term || ! isset( $term->slug ) ) {
+        return;
+    }
+
+    switch ( $term->slug ) {
+        case 'data-sheet':
+            $schema = <<<'JSON'
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.plixer.com/#organization",
+      "name": "Plixer",
+      "url": "https://www.plixer.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.plixer.com/wp-content/uploads/plixer-logo.png"
+      },
+      "description": "Plixer provides network observability, performance monitoring, and security analytics solutions.",
+      "sameAs": [
+        "https://twitter.com/plixer",
+        "https://www.youtube.com/plixerweb",
+        "https://www.linkedin.com/company/plixer"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.plixer.com/#website",
+      "url": "https://www.plixer.com/",
+      "name": "Plixer",
+      "publisher": {
+        "@id": "https://www.plixer.com/#organization"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.plixer.com/resource-type/data-sheet/#webpage",
+      "url": "https://www.plixer.com/resource-type/data-sheet/",
+      "name": "Data Sheets Archives \u2013 Plixer",
+      "description": "Browse Plixer data sheets for product overviews, specifications, and related network observability and security resources.",
+      "isPartOf": {
+        "@id": "https://www.plixer.com/#website"
+      },
+      "about": {
+        "@id": "https://www.plixer.com/#organization"
+      },
+      "breadcrumb": {
+        "@id": "https://www.plixer.com/resource-type/data-sheet/#breadcrumb"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.plixer.com/resource-type/data-sheet/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.plixer.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Resources",
+          "item": "https://www.plixer.com/resources/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Data Sheets",
+          "item": "https://www.plixer.com/resource-type/data-sheet/"
+        }
+      ]
+    }
+  ]
+}
+JSON;
+            break;
+
+        case 'webinars':
+            $schema = <<<'JSON'
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.plixer.com/#organization",
+      "name": "Plixer",
+      "url": "https://www.plixer.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.plixer.com/wp-content/uploads/plixer-logo.png"
+      },
+      "description": "Plixer provides network observability, performance monitoring, and security analytics solutions.",
+      "sameAs": [
+        "https://twitter.com/plixer",
+        "https://www.youtube.com/plixerweb",
+        "https://www.linkedin.com/company/plixer"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.plixer.com/#website",
+      "url": "https://www.plixer.com/",
+      "name": "Plixer",
+      "publisher": {
+        "@id": "https://www.plixer.com/#organization"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.plixer.com/resource-type/webinars/#webpage",
+      "url": "https://www.plixer.com/resource-type/webinars/",
+      "name": "Webinars Archives \u2013 Plixer",
+      "description": "Browse Plixer webinars covering network observability, security operations, analytics, and performance monitoring topics.",
+      "isPartOf": {
+        "@id": "https://www.plixer.com/#website"
+      },
+      "about": {
+        "@id": "https://www.plixer.com/#organization"
+      },
+      "breadcrumb": {
+        "@id": "https://www.plixer.com/resource-type/webinars/#breadcrumb"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.plixer.com/resource-type/webinars/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.plixer.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Resources",
+          "item": "https://www.plixer.com/resources/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Webinars",
+          "item": "https://www.plixer.com/resource-type/webinars/"
+        }
+      ]
+    }
+  ]
+}
+JSON;
+            break;
+
+        case 'case-study':
+            $schema = <<<'JSON'
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.plixer.com/#organization",
+      "name": "Plixer",
+      "url": "https://www.plixer.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.plixer.com/wp-content/uploads/plixer-logo.png"
+      },
+      "description": "Plixer provides network observability, performance monitoring, and security analytics solutions.",
+      "sameAs": [
+        "https://twitter.com/plixer",
+        "https://www.youtube.com/plixerweb",
+        "https://www.linkedin.com/company/plixer"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.plixer.com/#website",
+      "url": "https://www.plixer.com/",
+      "name": "Plixer",
+      "publisher": {
+        "@id": "https://www.plixer.com/#organization"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.plixer.com/resource-type/case-study/#webpage",
+      "url": "https://www.plixer.com/resource-type/case-study/",
+      "name": "Case Studies Archives \u2013 Plixer",
+      "description": "Browse Plixer case studies showing how organizations use Plixer solutions to improve network visibility, reduce downtime, and strengthen security operations.",
+      "isPartOf": {
+        "@id": "https://www.plixer.com/#website"
+      },
+      "about": {
+        "@id": "https://www.plixer.com/#organization"
+      },
+      "breadcrumb": {
+        "@id": "https://www.plixer.com/resource-type/case-study/#breadcrumb"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.plixer.com/resource-type/case-study/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.plixer.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Resources",
+          "item": "https://www.plixer.com/resources/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Case Studies",
+          "item": "https://www.plixer.com/resource-type/case-study/"
+        }
+      ]
+    }
+  ]
+}
+JSON;
+            break;
+
+        case 'whitepaper':
+            $schema = <<<'JSON'
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.plixer.com/#organization",
+      "name": "Plixer",
+      "url": "https://www.plixer.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.plixer.com/wp-content/uploads/plixer-logo.png"
+      },
+      "description": "Plixer provides network observability, performance monitoring, and security analytics solutions.",
+      "sameAs": [
+        "https://twitter.com/plixer",
+        "https://www.youtube.com/plixerweb",
+        "https://www.linkedin.com/company/plixer"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.plixer.com/#website",
+      "url": "https://www.plixer.com/",
+      "name": "Plixer",
+      "publisher": {
+        "@id": "https://www.plixer.com/#organization"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.plixer.com/resource-type/whitepaper/#webpage",
+      "url": "https://www.plixer.com/resource-type/whitepaper/",
+      "name": "White Papers Archives \u2013 Plixer",
+      "description": "Browse Plixer white papers covering network observability, security, analytics, and operational best practices.",
+      "isPartOf": {
+        "@id": "https://www.plixer.com/#website"
+      },
+      "about": {
+        "@id": "https://www.plixer.com/#organization"
+      },
+      "breadcrumb": {
+        "@id": "https://www.plixer.com/resource-type/whitepaper/#breadcrumb"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.plixer.com/resource-type/whitepaper/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.plixer.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Resources",
+          "item": "https://www.plixer.com/resources/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "White Papers",
+          "item": "https://www.plixer.com/resource-type/whitepaper/"
+        }
+      ]
+    }
+  ]
+}
+JSON;
+            break;
+
+        default:
+            return;
+    }
+
+    echo "\n<!-- Custom Schema.org JSON-LD Markup -->\n";
+    echo '<script type="application/ld+json">' . "\n";
+    echo $schema . "\n";
+    echo '</script>' . "\n";
+}
+add_action( 'wp_head', 'plixer_output_resource_type_schema', 99 );
+
 ?>
