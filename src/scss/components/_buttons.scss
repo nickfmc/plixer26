@@ -8,15 +8,27 @@
   margin: 1rem 0 1.75rem 0;
 }
 .post-nav-prev a, .post-nav-next a, .c-blk-btn a, .c-btn-primary a, .wp-block-button.is-style-standard a.wp-block-button__link, .wp-block-button.is-style-standard .wp-block-button__link {
-letter-spacing: 2px;
-  font-weight: 600;
-  padding:  0.35rem 1.5rem;
-  border-radius: 10px;
-  background-color: #005607; 
+// letter-spacing: 2px;
+//   font-weight: 600;
+//   padding:  0.35rem 1.5rem;
+//   border-radius: 10px;
+//   background-color: #005607; 
+//   color: #ffffff;
+
+  background-color: #00890b;
   color: #ffffff;
+  display: inline-flex;
+  font-size: 1rem;
+  line-height: 1.1;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid #00890b;
+  border-radius: 30px;
+  padding: 0.75rem 3rem;
 
   &:hover {
-    background-color: darken(#005607, 5%);
+   background-color: #005607;
   color: #ffffff;
   }
 }

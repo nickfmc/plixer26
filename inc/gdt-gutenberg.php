@@ -74,6 +74,7 @@ function register_acf_blocks() {
   register_block_type(  get_stylesheet_directory() . '/template-part/block/glossary/block.json' );
   register_block_type(  get_stylesheet_directory() . '/template-part/block/timeline/block.json' );
   register_block_type(  get_stylesheet_directory() . '/template-part/block/staff-popup/block.json' );
+  register_block_type(  get_stylesheet_directory() . '/template-part/block/pricing-chart/block.json' );
 }
 
 add_action( 'init', 'register_acf_blocks', 5 );

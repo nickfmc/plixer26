@@ -30,57 +30,96 @@
         </header>
 
     <section class="editor-content">
- 
-
-
-
-
-
-
-
-
-
         <!-- /article-header -->
-        <div class="c-post-content">
+        <?php 
+        // Check if TOC is enabled (needs to be outside article for sidebar access)
+        $enable_toc = get_field('enable_toc');
+        $toc_data = null;
+        
+        if ($enable_toc) {
+            // Get TOC data
+            $toc_data = get_table_of_contents(get_the_content(), get_the_ID());
+        }
+        ?>
+        
+        <div class="c-post-content <?php echo ($enable_toc && $toc_data && isset($toc_data['has_toc']) && $toc_data['has_toc']) ? 'has-toc-sidebar' : 'full-width'; ?>">
           <article <?php post_class(); ?> role="article">
-            <?php the_content(); ?>
+            <?php 
+            if ($enable_toc && $toc_data) {
+                // Output processed content with anchors
+                echo $toc_data['content'];
+            } else {
+                // Regular content without TOC
+                the_content();
+            }
+            ?>
 
             <?php
-        // Check if the post_author field is set and not empty
-        $post_author = get_field('post_author');
+        // Check if the article_author field is set and not empty
+        $article_author = get_field('article_author');
         
-        if ($post_author) {
-          echo '<h2 class="mt-12 h4-style">Post Author</h2>';
-            // Get the post title
-            $author_title = get_the_title($post_author);
+        // Fallback: check if old field name still has data
+        if (!$article_author) {
+            $article_author = get_post_meta(get_the_ID(), 'post_author', true);
             
-            // Get the bio field from the author post
-            $author_bio = get_field('bio', $post_author);
+            // If we found old data, migrate it to the new field name
+            if ($article_author) {
+                update_field('article_author', $article_author, get_the_ID());
+            }
+        }
+        
+        if ($article_author) {
+            // Handle both object and ID return formats
+            $author_id = is_object($article_author) ? $article_author->ID : $article_author;
             
-            // Output the information
-            if ($author_title || $author_bio) {
+            // Get author details
+            $author_name = get_the_title($author_id);
+            $author_bio = get_field('bio', $author_id);
+            $author_job_title = get_field('job_title', $author_id);
+            $author_image = get_field('headshot', $author_id);
+            $author_linkedin = get_field('linkedin_url', $author_id);
+            
+            // Output the author card with schema
+            if ($author_name || $author_bio) {
                 ?>
-                <div class="author-info">
-               
-                  <?php
-                  $image = get_field('headshot', $post_author);
-                  $size = 'medium';
-                  if($image){
-                  echo wp_get_attachment_image($image, $size);
-                  };?>
-                      
-                
-                 <div>
-                  <?php if ($author_title) : ?>
-                            <h3 class="author-title"><?php echo esc_html($author_title); ?></h3>
+                <div class="c-author-card" itemscope itemtype="https://schema.org/Person">
+                    
+                    <div class="c-author-card__content">
+                        <?php if($author_image): ?>
+                            <div class="c-author-card__image">
+                                <?php echo wp_get_attachment_image($author_image, 'medium', false, array('itemprop' => 'image')); ?>
+                            </div>
                         <?php endif; ?>
-                      <?php if ($author_bio) : ?>
-                          <div class="author-bio">
-                  
-                              <?php echo wp_kses_post($author_bio); ?>
-                          </div>
-                      <?php endif; ?>
-                  </div>
+                        
+                        <div class="c-author-card__info">
+                            <?php if ($author_name): ?>
+                                <h3 class="c-author-card__name" itemprop="name"><?php echo esc_html($author_name); ?></h3>
+                            <?php endif; ?>
+                            
+                            <?php if ($author_job_title): ?>
+                                <p class="c-author-card__title" itemprop="jobTitle"><?php echo esc_html($author_job_title); ?></p>
+                            <?php endif; ?>
+                            
+                            <?php if ($author_bio): ?>
+                                <div class="c-author-card__bio" itemprop="description">
+                                    <?php echo wp_kses_post($author_bio); ?>
+                                </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($author_linkedin): ?>
+                                <a href="<?php echo esc_url($author_linkedin); ?>" 
+                                   class="c-author-card__linkedin" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   itemprop="url">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                    </svg>
+                                    Connect on LinkedIn
+                                </a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
                 </div>
                 <?php
             }
@@ -88,17 +127,24 @@
         ?>
         
           </article>
-          <?php endwhile; ?>
-              
-              <?php else : ?>
-                <?php get_template_part( 'template-part/post/not-found' ); ?>
-              <?php endif; ?>
-             
           
+              <?php if ($enable_toc && $toc_data && isset($toc_data['has_toc']) && $toc_data['has_toc']) : ?>
               <div class="c-blog-sidebar">
-
+                <?php
+                    global $table_of_contents;
+                    echo $table_of_contents->get_toc_sidebar_html();
+                ?>
+                <?php get_sidebar(); // sidebar ?>
+              </div>
+              <?php endif; ?>
+          
+        </div><!-- /c-post-content -->
+        
+        <?php endwhile; ?>
               
-
+        <?php else : ?>
+          <?php get_template_part( 'template-part/post/not-found' ); ?>
+        <?php endif; ?>
 
 <!-- Grab Related post overrides and show here -->
 <?php
@@ -215,13 +261,7 @@ if ($show_related) {
     echo '</div></div>';
 }
 ?>
-
-                <?php get_sidebar(); // sidebar ?>
-                
-             </div>
       
-    
-        
       </section>
     
     
@@ -230,7 +270,7 @@ if ($show_related) {
 <!-- /layout-row-->
 
 <!-- Sticky Subscribe Button -->
-<button class="c-subscribe-sticky" aria-label="Subscribe to blog">
+<button class="c-subscribe-sticky <?php echo ($enable_toc && $toc_data) ? 'hidden-when-toc' : ''; ?>" aria-label="Subscribe to blog">
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
     <polyline points="22,6 12,13 2,6"></polyline>

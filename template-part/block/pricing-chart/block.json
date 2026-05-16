@@ -1,0 +1,16 @@
+{
+    "name": "pricing-chart",
+    "title": "Pricing Comparison Chart",
+    "description": "A two-column pricing comparison chart with sections, feature rows, and a recommended column highlight.",
+    "icon": "editor-table",
+    "keywords": ["pricing", "comparison", "chart", "table", "features", "plans", "tiers"],
+    "category": "myblocks",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "pricing-chart.php"
+    },
+    "example": {
+        "attributes": {}
+    },
+    "align": "full"
+}

@@ -3563,15 +3563,22 @@ p {
 }
 
 .post-nav-prev a, .post-nav-next a, .c-blk-btn a, .c-btn-primary a, .wp-block-button.is-style-standard a.wp-block-button__link, .wp-block-button.is-style-standard .wp-block-button__link {
-  letter-spacing: 2px;
-  font-weight: 600;
-  padding: 0.35rem 1.5rem;
-  border-radius: 10px;
-  background-color: #005607;
+  background-color: #00890b;
   color: #ffffff;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 1rem;
+  line-height: 1.1;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid #00890b;
+  border-radius: 30px;
+  padding: 0.75rem 3rem;
 }
 .post-nav-prev a:hover, .post-nav-next a:hover, .c-blk-btn a:hover, .c-btn-primary a:hover, .wp-block-button.is-style-standard a.wp-block-button__link:hover, .wp-block-button.is-style-standard .wp-block-button__link:hover {
-  background-color: rgb(0, 60.5, 4.9244186047);
+  background-color: #005607;
   color: #ffffff;
 }
 

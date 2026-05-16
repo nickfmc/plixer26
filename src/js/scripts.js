@@ -704,28 +704,35 @@ $('#mobile-nav').hcOffcanvasNav({
   // Sticky subscribe button show/hide on scroll
   const subscribeBtn = document.querySelector('.c-subscribe-sticky');
   const subscribeFlyout = document.querySelector('.c-subscribe-flyout');
+  const tocSubscribeBtn = document.querySelector('.c-toc-subscribe__button');
   
-  if (subscribeBtn && subscribeFlyout) {
-    let scrollTimeout;
+  if (subscribeFlyout) {
+    // Show sticky button after scrolling down 300px (only if it exists)
+    if (subscribeBtn) {
+      let scrollTimeout;
+      window.addEventListener('scroll', function() {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(function() {
+          if (window.scrollY > 300) {
+            subscribeBtn.classList.add('is-visible');
+          } else {
+            subscribeBtn.classList.remove('is-visible');
+          }
+        }, 100);
+      });
+      
+      // Open flyout from sticky button
+      subscribeBtn.addEventListener('click', function() {
+        openFlyout();
+      });
+    }
     
-    // Show button after scrolling down 300px
-    window.addEventListener('scroll', function() {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(function() {
-        if (window.scrollY > 300) {
-          subscribeBtn.classList.add('is-visible');
-        } else {
-          subscribeBtn.classList.remove('is-visible');
-        }
-      }, 100);
-    });
-    
-    // Open flyout
-    subscribeBtn.addEventListener('click', function() {
-      subscribeFlyout.classList.add('is-open');
-      subscribeFlyout.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('subscribe-flyout-open');
-    });
+    // Open flyout from TOC subscribe button
+    if (tocSubscribeBtn) {
+      tocSubscribeBtn.addEventListener('click', function() {
+        openFlyout();
+      });
+    }
     
     // Close flyout - close button
     const closeBtn = subscribeFlyout.querySelector('.c-subscribe-flyout__close');
@@ -749,6 +756,12 @@ $('#mobile-nav').hcOffcanvasNav({
         closeFlyout();
       }
     });
+    
+    function openFlyout() {
+      subscribeFlyout.classList.add('is-open');
+      subscribeFlyout.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('subscribe-flyout-open');
+    }
     
     function closeFlyout() {
       subscribeFlyout.classList.remove('is-open');

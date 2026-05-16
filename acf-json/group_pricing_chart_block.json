@@ -1,0 +1,283 @@
+{
+    "key": "group_pricing_chart_block",
+    "title": "Pricing Comparison Chart Block",
+    "fields": [
+        {
+            "key": "field_pc_col1_name",
+            "label": "Column 1 Name",
+            "name": "pc_col1_name",
+            "type": "text",
+            "instructions": "Header label for the first product column (e.g. Plixer Scrutinizer)",
+            "required": 1,
+            "default_value": "",
+            "placeholder": "Plixer Scrutinizer",
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_pc_col2_name",
+            "label": "Column 2 Name",
+            "name": "pc_col2_name",
+            "type": "text",
+            "instructions": "Header label for the second product column (e.g. Plixer One)",
+            "required": 1,
+            "default_value": "",
+            "placeholder": "Plixer One",
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_pc_col2_recommended",
+            "label": "Show 'Recommended' Badge on Column 2",
+            "name": "pc_col2_recommended",
+            "type": "true_false",
+            "instructions": "Display the orange 'RECOMMENDED' badge above column 2.",
+            "required": 0,
+            "default_value": 1,
+            "ui": 1,
+            "wrapper": { "width": "", "class": "", "id": "" }
+        },
+        {
+            "key": "field_pc_col1_logo",
+            "label": "Column 1 Logo (optional)",
+            "name": "pc_col1_logo",
+            "type": "image",
+            "instructions": "Upload a logo image to display instead of the text name for column 1.",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "medium",
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_pc_col2_logo",
+            "label": "Column 2 Logo (optional)",
+            "name": "pc_col2_logo",
+            "type": "image",
+            "instructions": "Upload a logo image to display instead of the text name for column 2.",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "medium",
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_pc_col1_footer_type",
+            "label": "Column 1 Footer Type",
+            "name": "pc_col1_footer_type",
+            "type": "select",
+            "instructions": "Choose whether column 1 shows a button or a price block at the bottom.",
+            "required": 0,
+            "choices": { "button": "Button", "price_text": "Price Text" },
+            "default_value": "button",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_pc_col1_button_text",
+            "label": "Column 1 Button Text",
+            "name": "pc_col1_button_text",
+            "type": "text",
+            "instructions": "Call-to-action button label for column 1.",
+            "required": 0,
+            "default_value": "Purchase",
+            "placeholder": "Purchase",
+            "conditional_logic": [[{ "field": "field_pc_col1_footer_type", "operator": "==", "value": "button" }]],
+            "wrapper": { "width": "25", "class": "", "id": "" }
+        },
+        {
+            "key": "field_pc_col1_button_url",
+            "label": "Column 1 Button URL",
+            "name": "pc_col1_button_url",
+            "type": "url",
+            "instructions": "Link for the column 1 purchase button. Leave blank to hide the button.",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "https://",
+            "conditional_logic": [[{ "field": "field_pc_col1_footer_type", "operator": "==", "value": "button" }]],
+            "wrapper": { "width": "75", "class": "", "id": "" }
+        },
+        {
+            "key": "field_pc_col1_price_amount",
+            "label": "Column 1 Price Amount",
+            "name": "pc_col1_price_amount",
+            "type": "text",
+            "instructions": "The main price figure, e.g. \"$2,000\".",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "$2,000",
+            "conditional_logic": [[{ "field": "field_pc_col1_footer_type", "operator": "==", "value": "price_text" }]],
+            "wrapper": { "width": "30", "class": "", "id": "" }
+        },
+        {
+            "key": "field_pc_col1_price_subtext",
+            "label": "Column 1 Price Subtext",
+            "name": "pc_col1_price_subtext",
+            "type": "textarea",
+            "instructions": "Supporting text shown below the price, e.g. \"per month,\\nbilled annually\\n($24,000)*\". Each line is rendered as a separate line.",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "per month,\nbilled annually\n($24,000)*",
+            "rows": 3,
+            "new_lines": "br",
+            "conditional_logic": [[{ "field": "field_pc_col1_footer_type", "operator": "==", "value": "price_text" }]],
+            "wrapper": { "width": "70", "class": "", "id": "" }
+        },
+        {
+            "key": "field_pc_col2_footer_type",
+            "label": "Column 2 Footer Type",
+            "name": "pc_col2_footer_type",
+            "type": "select",
+            "instructions": "Choose whether column 2 shows a button or a price block at the bottom.",
+            "required": 0,
+            "choices": { "button": "Button", "price_text": "Price Text" },
+            "default_value": "button",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_pc_col2_button_text",
+            "label": "Column 2 Button Text",
+            "name": "pc_col2_button_text",
+            "type": "text",
+            "instructions": "Call-to-action button label for column 2.",
+            "required": 0,
+            "default_value": "Purchase",
+            "placeholder": "Purchase",
+            "conditional_logic": [[{ "field": "field_pc_col2_footer_type", "operator": "==", "value": "button" }]],
+            "wrapper": { "width": "25", "class": "", "id": "" }
+        },
+        {
+            "key": "field_pc_col2_button_url",
+            "label": "Column 2 Button URL",
+            "name": "pc_col2_button_url",
+            "type": "url",
+            "instructions": "Link for the column 2 purchase button. Leave blank to hide the button.",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "https://",
+            "conditional_logic": [[{ "field": "field_pc_col2_footer_type", "operator": "==", "value": "button" }]],
+            "wrapper": { "width": "75", "class": "", "id": "" }
+        },
+        {
+            "key": "field_pc_col2_price_amount",
+            "label": "Column 2 Price Amount",
+            "name": "pc_col2_price_amount",
+            "type": "text",
+            "instructions": "The main price figure, e.g. \"$2,000\".",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "$2,000",
+            "conditional_logic": [[{ "field": "field_pc_col2_footer_type", "operator": "==", "value": "price_text" }]],
+            "wrapper": { "width": "30", "class": "", "id": "" }
+        },
+        {
+            "key": "field_pc_col2_price_subtext",
+            "label": "Column 2 Price Subtext",
+            "name": "pc_col2_price_subtext",
+            "type": "textarea",
+            "instructions": "Supporting text shown below the price, e.g. \"per month,\\nbilled annually\\n($24,000)*\". Each line is rendered as a separate line.",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "per month,\nbilled annually\n($24,000)*",
+            "rows": 3,
+            "new_lines": "br",
+            "conditional_logic": [[{ "field": "field_pc_col2_footer_type", "operator": "==", "value": "price_text" }]],
+            "wrapper": { "width": "70", "class": "", "id": "" }
+        },
+        {
+            "key": "field_pc_sections",
+            "label": "Sections",
+            "name": "pc_sections",
+            "type": "repeater",
+            "instructions": "Add sections (e.g. Components, Features). Each section has a heading and a list of comparison rows.",
+            "required": 1,
+            "collapsed": "field_pc_section_heading",
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Section",
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "sub_fields": [
+                {
+                    "key": "field_pc_section_heading",
+                    "label": "Section Heading",
+                    "name": "section_heading",
+                    "type": "text",
+                    "instructions": "Optional heading shown at the top of this section (e.g. Components, Features).",
+                    "required": 0,
+                    "default_value": "",
+                    "placeholder": "Components",
+                    "wrapper": { "width": "", "class": "", "id": "" }
+                },
+                {
+                    "key": "field_pc_rows",
+                    "label": "Rows",
+                    "name": "rows",
+                    "type": "repeater",
+                    "instructions": "Add comparison rows for this section. For the value fields: type \"check\" to show a checkmark icon, leave blank to show an em dash, or enter any text/number.",
+                    "required": 1,
+                    "collapsed": "field_pc_row_label",
+                    "min": 1,
+                    "max": 0,
+                    "layout": "table",
+                    "button_label": "Add Row",
+                    "wrapper": { "width": "", "class": "", "id": "" },
+                    "sub_fields": [
+                        {
+                            "key": "field_pc_row_label",
+                            "label": "Row Label",
+                            "name": "row_label",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "default_value": "",
+                            "placeholder": "Feature name",
+                            "wrapper": { "width": "50", "class": "", "id": "" }
+                        },
+                        {
+                            "key": "field_pc_col1_value",
+                            "label": "Column 1 Value",
+                            "name": "col1_value",
+                            "type": "text",
+                            "instructions": "\"check\" = checkmark icon | blank = em dash | any text = shown as-is",
+                            "required": 0,
+                            "default_value": "check",
+                            "placeholder": "check",
+                            "wrapper": { "width": "25", "class": "", "id": "" }
+                        },
+                        {
+                            "key": "field_pc_col2_value",
+                            "label": "Column 2 Value",
+                            "name": "col2_value",
+                            "type": "text",
+                            "instructions": "\"check\" = checkmark icon | blank = em dash | any text = shown as-is",
+                            "required": 0,
+                            "default_value": "check",
+                            "placeholder": "check",
+                            "wrapper": { "width": "25", "class": "", "id": "" }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/pricing-chart"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}

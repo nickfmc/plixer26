@@ -29,5 +29,8 @@ require_once('inc/gdt-custom.php'); // per project custom functions
 // DEMO POPUP SYSTEM
 require_once('inc/demo-popup.php'); // portable popup component with Gravity Forms
 
+// TABLE OF CONTENTS
+require_once('inc/table-of-contents.php'); // automatic table of contents generation
+
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>
