@@ -233,6 +233,8 @@ $pc-recommended-bg: $color-orange;
     gap: 2px;
 }
 
+
+
 .c-pricing-chart__price-amount {
     display: block;
     font-size: 1.6rem;
@@ -240,6 +242,10 @@ $pc-recommended-bg: $color-orange;
     line-height: 1.15;
     color: inherit;
 }
+
+.c-pricing-chart__footer-col--2, .c-pricing-chart__footer-col--2 .c-pricing-chart__price-amount {
+    color: #fff;
+} 
 
 .c-pricing-chart__price-subtext {
     display: block;

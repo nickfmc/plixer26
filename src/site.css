@@ -4269,7 +4269,8 @@ p {
 }
 
 .single-post .editor-content ul:not(.inputs-list) li::before {
-  background-color: #fff;
+  background-color: #000;
+  padding-bottom: 2px;
 }
 
 .editor-content .stk-block-icon-list ul {
@@ -9084,6 +9085,7 @@ body.hc-nav-open {
   font-family: "Raleway", sans-serif;
   font-size: 16px;
   line-height: 1.2;
+  padding-right: 20px;
   font-weight: 700;
   color: #371b5e;
   margin: 0;
@@ -9130,6 +9132,7 @@ body.hc-nav-open {
 }
 .c-table-of-contents .c-toc-list li {
   padding-left: 0 !important;
+  padding-bottom: 0 !important;
 }
 .c-table-of-contents .c-toc-list li::before {
   display: none !important;
@@ -9146,7 +9149,7 @@ body.hc-nav-open {
 }
 .c-table-of-contents .c-toc-link {
   display: block;
-  padding: 5px 8px;
+  padding: 3px 8px;
   color: #371b5e;
   text-decoration: none;
   border-radius: 3px;
@@ -9155,6 +9158,7 @@ body.hc-nav-open {
   font-family: "Raleway", sans-serif;
   font-size: 14px;
   line-height: 1.3;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .c-table-of-contents .c-toc-link:hover {
   background-color: rgba(9, 174, 239, 0.15);
@@ -9165,6 +9169,18 @@ body.hc-nav-open {
   background-color: #09aeef;
   color: white;
   font-weight: 500;
+}
+
+.c-toc-item:last-of-type .c-toc-link {
+  border-bottom: none;
+}
+
+.c-toc-item.c-toc-item--level-3 {
+  padding-bottom: 1px !important;
+}
+.c-toc-item.c-toc-item--level-3 .c-toc-link {
+  padding: 2px 30px;
+  color: #333;
 }
 
 .c-single-post__share-buttons {
@@ -12244,6 +12260,10 @@ body.modal-open {
   font-weight: 700;
   line-height: 1.15;
   color: inherit;
+}
+
+.c-pricing-chart__footer-col--2, .c-pricing-chart__footer-col--2 .c-pricing-chart__price-amount {
+  color: #fff;
 }
 
 .c-pricing-chart__price-subtext {

@@ -211,7 +211,8 @@ thead tr {
 
 .single-post {
   .editor-content ul:not(.inputs-list) li::before {
-    background-color: #fff;
+    background-color: #000;
+    padding-bottom: 2px;
   }
 }
 
