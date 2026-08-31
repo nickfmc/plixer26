@@ -1272,3 +1272,13 @@ article {
 .c-post-content article {
     max-width: 980px;
 }
+ 
+.single-resources .c-post-content article {
+    max-width: 100%;
+}
+
+.page-template-pg-blog-main {
+    .c-main-posts {
+        padding-bottom: 90px;
+    }
+}

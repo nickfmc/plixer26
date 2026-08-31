@@ -347,8 +347,9 @@
     background: #fff;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    box-shadow: rgba(20, 20, 40, 0.04) 0px 1px 2px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgb(231, 233, 238);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -586,3 +587,17 @@ img {
     } 
 }
 }
+
+.archive.term-case-study .c-resource-card {
+ .c-resource-card__image, .c-resource-badge {
+    display: none;
+ }
+}
+
+.archive  .c-resource-card .c-resource-badge {
+    display: none;
+ }
+
+ .archive .c-main-posts {
+    padding-bottom: 90px;
+ }

@@ -7702,10 +7702,11 @@ body.hc-nav-open {
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
-  -webkit-box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  -webkit-box-shadow: rgba(20, 20, 40, 0.04) 0px 1px 2px;
+          box-shadow: rgba(20, 20, 40, 0.04) 0px 1px 2px;
   -webkit-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgb(231, 233, 238);
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7980,6 +7981,18 @@ body.hc-nav-open {
   .c-resource-header > div.c-article-header-content--full {
     width: 100%;
   }
+}
+
+.archive.term-case-study .c-resource-card .c-resource-card__image, .archive.term-case-study .c-resource-card .c-resource-badge {
+  display: none;
+}
+
+.archive .c-resource-card .c-resource-badge {
+  display: none;
+}
+
+.archive .c-main-posts {
+  padding-bottom: 90px;
 }
 
 .c-fancy-hr {
@@ -10397,6 +10410,14 @@ body.subscribe-flyout-open {
 
 .c-post-content article {
   max-width: 980px;
+}
+
+.single-resources .c-post-content article {
+  max-width: 100%;
+}
+
+.page-template-pg-blog-main .c-main-posts {
+  padding-bottom: 90px;
 }
 
 .c-upcoming-webinars-wrapper {

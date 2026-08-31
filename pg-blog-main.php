@@ -113,7 +113,7 @@ endwhile; endif;
             $wp_query = null;
             $wp_query = new WP_Query(
               array(
-                'posts_per_page' => 9,
+                'posts_per_page' => 8,
                 'post__not_in' => $featured_post_ids,
                 'paged' => $paged
               )
