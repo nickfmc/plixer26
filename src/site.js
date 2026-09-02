@@ -16,4 +16,5 @@ require('script-loader!../node_modules/hc-offcanvas-nav/dist/hc-offcanvas-nav.js
 require('./js/scripts'); 
 require('./js/demo-popup'); 
 require('./js/timeline');
-require('./js/staff-popup'); 
+require('./js/staff-popup');
+require('./js/resource-hub'); 

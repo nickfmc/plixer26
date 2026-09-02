@@ -1,0 +1,1031 @@
+/* ==========================================================================
+   RESOURCE HUB  (pg-resource-hub.php)
+   --------------------------------------------------------------------------
+   SECTION BACKGROUNDS ARE LEFT BLANK ON PURPOSE - see the block at the very
+   bottom of this file. Drop the poly / wave / gradient treatments in there so
+   the page matches the page-builder sections.
+   ========================================================================== */
+
+// fallbacks - JS overwrites these with the measured header + nav height
+:root {
+  --hub-header-height: 117px;
+  --hub-nav-height: 96px;
+}
+
+
+/* --------------------------------------------------------------------------
+   1. STICKY ANCHOR NAV
+   -------------------------------------------------------------------------- */
+
+.c-hub-nav-wrap {
+  position: sticky;
+  top: var(--hub-header-height, 117px);
+  z-index: 90;
+}
+
+.c-hub-nav {
+  background-color: $color-blue;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.12);
+
+  .o-wrapper-wide {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  // MOBILE FIRST: one compact scrolling row, so the bar only costs ~50px of
+  // screen under the fixed header. It opens out into the tall icon bar at $bp-medium.
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: stretch; // every item fills the full height of the bar
+    justify-content: flex-start;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 16px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    li::before {
+      display: none !important;
+    }
+
+    // only centre it once every item fits without scrolling
+    @media(width >= 1106px) {
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex: 0 0 auto;
+    padding: 0;
+    margin: 0;
+    scroll-snap-align: center;
+  }
+
+  &__link {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 11px 14px;
+    color: $color-white;
+    text-decoration: none;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: $transition-ease;
+
+    @media(width >= $bp-medium) {
+      flex-direction: column;
+      justify-content: flex-start;
+      text-align: center;
+      gap: 6px;
+      padding: 16px 28px 12px;
+      min-width: 124px;
+      border-bottom-width: 4px;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: $color-white;
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+
+    &.is-active {
+      background-color: rgba(255, 255, 255, 0.16);
+      border-bottom-color: $color-white;
+    }
+  }
+
+  &__icon {
+    display: block;
+    width: 22px;
+    height: 22px;
+
+    @media(width >= $bp-medium) {
+      width: 34px;
+      height: 34px;
+    }
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    font-family: $font-secondary;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+
+    span {
+      white-space: nowrap;
+    }
+
+    @media(width >= $bp-medium) {
+      flex-direction: column;
+      gap: 0;
+
+      span {
+        display: block;
+      }
+    }
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   2. SECTION SHELL
+   -------------------------------------------------------------------------- */
+
+.c-hub-section {
+  position: relative;
+  padding: 50px 0;
+  // anchor jumps have to clear the fixed header + the sticky nav
+  scroll-margin-top: calc(var(--hub-header-height, 117px) + var(--hub-nav-height, 96px));
+
+  @media(width >= $bp-large) {
+    padding: 70px 0;
+  }
+
+  > .o-wrapper-wide {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  &__header--stacked {
+    justify-content: flex-start;
+  }
+
+  &__title {
+    margin: 0;
+    color: $color-blue;
+    font-weight: 400;
+  }
+
+  // compact version of the site button used in the section headers
+  &__more {
+    display: inline-block;
+    margin: 0;
+
+    a {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 0.6rem 1.6rem;
+    }
+  }
+
+  &__more--center {
+    display: block;
+    text-align: center;
+    margin-top: 32px;
+  }
+}
+
+// two-column bands (News + Webinars, Whitepapers + Datasheets)
+.c-hub-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+
+  @media(width >= $bp-large) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+  }
+
+  &__col {
+    min-width: 0;
+    scroll-margin-top: calc(var(--hub-header-height, 117px) + var(--hub-nav-height, 96px));
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   3. THOUGHT LEADERSHIP
+   -------------------------------------------------------------------------- */
+
+.c-hub-article-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 26px;
+
+  @media(width >= $bp-medium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media(width >= $bp-large) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.c-hub-article {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: $color-white;
+  border: 1px solid rgb(231, 233, 238);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: rgba(20, 20, 40, 0.04) 0 1px 2px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &__link {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+  }
+
+  &__image {
+    // locked ratio so every card in the row lines up, whatever the upload size
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: linear-gradient(135deg, $color-purple-darker 0%, $color-blue-dark 100%);
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 22px;
+  }
+
+  &__title {
+    margin: 0 0 10px;
+    font-size: 18px;
+    line-height: 1.35;
+    font-weight: 700;
+    color: $color-purple-dark;
+    transition: color 0.3s ease;
+  }
+
+  &__date {
+    display: block;
+    font-size: 13px;
+    color: #6b6b6b;
+    margin-bottom: 12px;
+  }
+
+  &__excerpt {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    margin: 0 0 16px;
+    flex: 1;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: $font-secondary;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: $color-purple-one;
+    transition: all 0.3s ease;
+
+    svg {
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 30px rgba(89, 49, 137, 0.18);
+
+    .c-hub-article__image img {
+      transform: scale(1.06);
+    }
+
+    .c-hub-article__title {
+      color: $color-purple-one;
+    }
+
+    .c-hub-article__cta {
+      gap: 10px;
+
+      svg {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  // the lead article - text left, image right, twice as wide
+  &--featured {
+    @media(width >= $bp-medium) {
+      grid-column: span 2;
+    }
+
+    @media(width >= $bp-large) {
+      flex-direction: row-reverse;
+
+      .c-hub-article__image {
+        flex: 0 0 46%;
+        aspect-ratio: auto; // side column - fills the card height instead
+      }
+
+      .c-hub-article__content {
+        padding: 34px 30px;
+      }
+
+      .c-hub-article__title {
+        font-size: 27px;
+        line-height: 1.2;
+      }
+
+      .c-hub-article__excerpt {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+// author chip at the foot of a thought-leadership card
+.c-hub-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgb(231, 233, 238);
+
+  &__image {
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+  }
+
+  &__name {
+    font-size: 13px;
+    font-weight: 700;
+    color: $color-plixer-dark;
+  }
+
+  &__title {
+    font-size: 12px;
+    color: #6b6b6b;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   4. NEWS & PR  +  WEBINARS
+   -------------------------------------------------------------------------- */
+
+// News column - assumes a dark / blue band (see backgrounds block below).
+// If you set a light background here, swap these colours out.
+.c-hub-section--news {
+  .c-hub-section__title {
+    color: $color-white;
+  }
+}
+
+.c-hub-news-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.c-hub-news {
+  position: relative;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+
+  &:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  &__link {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+  }
+
+  &__date {
+    display: block;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 6px;
+  }
+
+  &__title {
+    margin: 0 0 6px;
+    font-size: 19px;
+    line-height: 1.3;
+    font-weight: 700;
+    color: $color-white;
+    transition: color 0.3s ease;
+  }
+
+  &__excerpt {
+    margin: 0 0 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  &__cta {
+    display: inline-block;
+    font-family: $font-secondary;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: $color-white;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    padding-bottom: 2px;
+    transition: border-color 0.3s ease;
+  }
+
+  &:hover {
+    .c-hub-news__title {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .c-hub-news__cta {
+      border-bottom-color: $color-white;
+    }
+  }
+}
+
+.c-hub-webinar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.c-hub-webinar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: $color-white;
+  border-radius: 4px;
+  padding: 20px 22px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+  &__content {
+    flex: 1 1 260px;
+    min-width: 0;
+  }
+
+  &__title {
+    margin: 0 0 6px;
+    font-size: 17px;
+    line-height: 1.3;
+    font-weight: 700;
+    color: $color-blue-dark;
+  }
+
+  &__excerpt {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #666;
+  }
+
+  &__button {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    background-color: $color-green-new;
+    border: 1px solid $color-green-new;
+    border-radius: 30px;
+    color: $color-white;
+    font-family: $font-secondary;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.55rem 1.6rem;
+    transition: $transition-ease;
+
+    &:hover,
+    &:focus-visible {
+      background-color: #005607;
+      border-color: #005607;
+      color: $color-white;
+    }
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   5. VIDEOS
+   -------------------------------------------------------------------------- */
+
+.c-hub-video-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @media(width >= $bp-small) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media(width >= $bp-large) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* iTunes-style coverflow -------------------------------------------------- */
+
+.c-hub-coverflow {
+  position: relative;
+
+  // NO-JS / PRE-INIT: a plain horizontal scroll row, so the videos are always
+  // reachable. The .is-coverflow class below takes over once the JS runs.
+  &__stage {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    > * {
+      flex: 0 0 clamp(240px, 70vw, 320px);
+    }
+  }
+
+  &__nav {
+    display: none;
+    position: absolute;
+    top: 50%;
+    z-index: 20;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    transform: translateY(-50%);
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    color: $color-blue-dark;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: $transition-ease;
+
+    &:hover,
+    &:focus-visible {
+      background: $color-white;
+      color: $color-blue;
+    }
+
+    &--prev {
+      left: 4px;
+    }
+
+    &--next {
+      right: 4px;
+    }
+
+    @media(width >= $bp-medium) {
+      &--prev {
+        left: 20px;
+      }
+
+      &--next {
+        right: 20px;
+      }
+    }
+  }
+
+  &__caption {
+    margin: 22px auto 0;
+    max-width: 640px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: $color-blue-dark;
+    min-height: 1.35em;
+  }
+
+  // ACTIVE COVERFLOW ------------------------------------------------------
+  &.is-coverflow {
+    .c-hub-coverflow__stage {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      perspective: 1400px;
+      perspective-origin: 50% 45%;
+      touch-action: pan-y;
+      cursor: grab;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    img {
+      -webkit-user-drag: none;
+      user-select: none;
+    }
+
+    .c-hub-video {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      will-change: transform;
+      transform-style: preserve-3d;
+      transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.35, 1), opacity 0.45s ease;
+
+      // side covers read as artwork only - the centre one gets the caption
+      .c-hub-video__title,
+      .c-hub-video__play,
+      .c-hub-video__duration {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      &.is-active {
+        .c-hub-video__play,
+        .c-hub-video__duration {
+          opacity: 1;
+        }
+      }
+
+      &:not(.is-active) .c-hub-video__trigger {
+        cursor: pointer;
+      }
+    }
+
+    .c-hub-video__image {
+      border-radius: 4px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .c-hub-coverflow__nav {
+      display: flex;
+    }
+  }
+
+  // while a grab is in progress the covers track the pointer 1:1
+  &.is-dragging {
+    .c-hub-coverflow__stage {
+      cursor: grabbing;
+    }
+
+    .c-hub-video {
+      transition: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &.is-coverflow .c-hub-video {
+      transition: none;
+    }
+  }
+}
+
+.c-hub-video {
+  position: relative;
+
+  &__trigger {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 4px;
+    overflow: hidden;
+
+    &--static {
+      cursor: default;
+    }
+
+    &:focus-visible {
+      outline: 3px solid $color-blue;
+      outline-offset: 3px;
+    }
+  }
+
+  &__image {
+    display: block;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, $color-purple-darker 0%, $color-blue-dark 100%);
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 20, 40, 0.85) 0%, rgba(15, 20, 40, 0.15) 55%, transparent 100%);
+    }
+  }
+
+  &__play {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 6px;
+    background-color: $color-green-new;
+    color: $color-white;
+    transition: $transition-ease;
+
+    svg {
+      width: 26px;
+      height: 26px;
+    }
+  }
+
+  &__duration {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 2;
+    font-size: 12px;
+    font-weight: 700;
+    color: $color-white;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 3px;
+    padding: 2px 8px;
+  }
+
+  &__title {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 16px;
+    z-index: 2;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: $color-white;
+  }
+
+  &:hover {
+    .c-hub-video__image img {
+      transform: scale(1.06);
+    }
+
+    .c-hub-video__play {
+      background-color: #005607;
+    }
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   6. WHITEPAPERS + DATASHEETS
+   -------------------------------------------------------------------------- */
+
+.c-hub-doc-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+
+  @media(width >= $bp-small) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.c-hub-doc {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: $color-white;
+  border: 1px solid rgb(231, 233, 238);
+  border-top: 4px solid $color-blue;
+  border-radius: 3px;
+  padding: 22px;
+  box-shadow: rgba(20, 20, 40, 0.05) 0 1px 3px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &--datasheet {
+    border-top-color: $color-orange;
+  }
+
+  &__link {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+  }
+
+  &__title {
+    margin: 0 0 10px;
+    font-size: 16px;
+    line-height: 1.35;
+    font-weight: 700;
+    color: $color-blue-dark;
+    transition: color 0.3s ease;
+  }
+
+  &__excerpt {
+    margin: 0 0 16px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #666;
+    flex: 1;
+  }
+
+  &__cta {
+    font-family: $font-secondary;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: $color-blue;
+  }
+
+  &--datasheet &__cta {
+    color: $color-orange;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+    .c-hub-doc__title {
+      color: $color-blue;
+    }
+  }
+
+  &--datasheet:hover .c-hub-doc__title {
+    color: $color-orange;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   7. VIDEO LIGHTBOX
+   -------------------------------------------------------------------------- */
+
+body.has-hub-modal-open {
+  overflow: hidden;
+}
+
+.c-hub-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &[hidden] {
+    display: none;
+  }
+
+  &.is-active {
+    opacity: 1;
+  }
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 20, 0.85);
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 960px;
+  }
+
+  &__close {
+    position: absolute;
+    top: -44px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    color: $color-white;
+    cursor: pointer;
+    transition: $transition-ease;
+
+    &:hover,
+    &:focus-visible {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  &__title {
+    margin: 0 0 12px;
+    font-size: 18px;
+    font-weight: 700;
+    color: $color-white;
+  }
+
+  &__frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  &__iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   8. SECTION BACKGROUNDS  >>> LEFT FOR NICK <<<
+   Match these to the page-builder treatments. The News band assumes a dark
+   blue background (its text is white) - everything else assumes light.
+   -------------------------------------------------------------------------- */
+
+.c-hub-section--thought-leadership {
+  // background: ;
+}
+
+.c-hub-section--case-studies {
+  // background: ;
+}
+
+.c-hub-section--news {
+  background-color: $color-blue; // placeholder solid blue - text in this section is white
+}
+
+.c-hub-section--videos {
+  // background: ;
+}
+
+.c-hub-section--docs {
+  // background: ;
+}

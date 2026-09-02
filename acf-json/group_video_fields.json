@@ -1,0 +1,61 @@
+{
+    "key": "group_video_fields",
+    "title": "Video Fields",
+    "fields": [
+        {
+            "key": "field_video_url",
+            "label": "Video URL",
+            "name": "video_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Paste the YouTube or Vimeo link. The video opens in a lightbox on the Resource Hub page.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https://www.youtube.com/watch?v="
+        },
+        {
+            "key": "field_video_duration",
+            "label": "Duration",
+            "name": "video_duration",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional. Shown on the video card, e.g. 3:24",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "video_type"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}

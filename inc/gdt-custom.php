@@ -545,4 +545,112 @@ JSON;
 }
 add_action( 'wp_head', 'plixer_output_resource_type_schema', 99 );
 
+/************ RESOURCE HUB HELPERS *******************/
+
+/**
+ * Inline SVG icons for the Resource Hub anchor nav.
+ * usage: echo plixer_hub_icon('news');
+ */
+function plixer_hub_icon( $name ) {
+  $open  = '<svg class="c-hub-nav__icon" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">';
+  $close = '</svg>';
+
+  switch ( $name ) {
+
+    case 'article': // thought leadership - document + pencil
+      $paths = '<path d="M13 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/>
+                <path d="M7 8h5"/><path d="M7 12h4"/><path d="M7 16h3"/>
+                <path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L16 11l-3 1 1-3Z"/>';
+      break;
+
+    case 'case-study': // document + magnifier
+      $paths = '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-4"/>
+                <path d="M14 3v4a2 2 0 0 0 2 2h4"/><path d="M20 3h-6"/>
+                <path d="M7 8h4"/><path d="M7 12h3"/>
+                <circle cx="16.5" cy="14.5" r="3"/><path d="m21 19-2.4-2.4"/>';
+      break;
+
+    case 'news': // megaphone
+      $paths = '<path d="m3 11 15-6v14L3 13Z"/><path d="M3 11v2a1 1 0 0 0 1 1h1v-4H4a1 1 0 0 0-1 1Z"/>
+                <path d="M7 14v4a2 2 0 0 0 4 0v-3"/><path d="M20 9v4"/>';
+      break;
+
+    case 'webinar': // presentation screen
+      $paths = '<rect x="2.5" y="4" width="19" height="12" rx="2"/>
+                <path d="M12 16v4"/><path d="M8.5 20h7"/>
+                <path d="m9 12 2.5-2.5L13.5 11 16 8"/>';
+      break;
+
+    case 'video': // play button
+      $paths = '<rect x="2.5" y="5" width="19" height="14" rx="3"/>
+                <path d="m10.5 9.5 4.5 2.5-4.5 2.5Z"/>';
+      break;
+
+    case 'doc': // datasheets + whitepapers
+    default:
+      $paths = '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/>
+                <path d="M14 3v5h5"/><path d="M9 12h6"/><path d="M9 16h6"/>';
+      break;
+  }
+
+  return $open . $paths . $close;
+}
+
+
+/**
+ * Turn a YouTube / Vimeo watch URL into its embed URL.
+ * Returns the original URL if it isn't a provider we recognise.
+ * usage: echo plixer_video_embed_url( get_field('video_url') );
+ */
+function plixer_video_embed_url( $url ) {
+  $url = trim( (string) $url );
+  if ( ! $url ) {
+    return '';
+  }
+
+  // already an embed URL
+  if ( preg_match( '#(youtube\.com/embed/|player\.vimeo\.com/video/)#i', $url ) ) {
+    return esc_url_raw( $url );
+  }
+
+  // youtu.be/ID  or  youtube.com/watch?v=ID  or  youtube.com/shorts/ID
+  if ( preg_match( '#(?:youtu\.be/|youtube\.com/(?:watch\?(?:.*&)?v=|shorts/|live/))([A-Za-z0-9_-]{6,})#i', $url, $m ) ) {
+    return 'https://www.youtube.com/embed/' . $m[1];
+  }
+
+  // vimeo.com/ID
+  if ( preg_match( '#vimeo\.com/(?:video/)?([0-9]+)#i', $url, $m ) ) {
+    return 'https://player.vimeo.com/video/' . $m[1];
+  }
+
+  return esc_url_raw( $url );
+}
+
+
+/**
+ * Shared WP_Query args for the Resource Hub sections.
+ * $term is a 'resource-type' slug, or '' to skip the tax query.
+ */
+function plixer_hub_query_args( $post_type, $count, $term = '' ) {
+  $args = array(
+    'post_type'           => $post_type,
+    'posts_per_page'      => (int) $count,
+    'post_status'         => 'publish',
+    'ignore_sticky_posts' => true,
+    'no_found_rows'       => true,
+  );
+
+  if ( $term ) {
+    $args['tax_query'] = array(
+      array(
+        'taxonomy' => 'resource-type',
+        'field'    => 'slug',
+        'terms'    => $term,
+      ),
+    );
+  }
+
+  return $args;
+}
+
 ?>
