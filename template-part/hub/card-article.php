@@ -11,6 +11,7 @@ $classes  = 'c-hub-article' . ( $featured ? ' c-hub-article--featured' : '' );
 
 // author card data - same ACF fields as single.php
 $article_author = function_exists( 'get_field' ) ? get_field( 'article_author' ) : false;
+$article_author = is_array( $article_author ) ? reset( $article_author ) : $article_author; // multi-select: use the first author
 $author_id      = is_object( $article_author ) ? $article_author->ID : $article_author;
 $author_name    = $author_id ? get_the_title( $author_id ) : '';
 $author_title   = $author_id ? get_field( 'job_title', $author_id ) : '';

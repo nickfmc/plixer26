@@ -1,0 +1,243 @@
+// PARTNER HERO BLOCK
+// Light-blue panel with a slanted right edge + blue stroke on the right/bottom,
+// partner logo on the right, CTA callout card overlapping the bottom-left,
+// and a row of orange parallelograms under the slanted corner.
+
+.c-partner-hero {
+    --ph-slant: 40px;   // horizontal run of the slanted right edge
+    --ph-stroke-x: 8px; // stroke thickness along the slant
+    --ph-stroke-y: 6px; // stroke thickness along the bottom
+
+    padding: 40px 16px 60px;
+
+    @media(width >= $bp-medium) {
+        --ph-slant: 12%;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    @media(width >= $bp-large) {
+        --ph-slant: 16%;
+        --ph-stroke-x: 10px;
+        --ph-stroke-y: 7px;
+        padding-bottom: 80px;
+    }
+}
+
+.c-partner-hero__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+// PANEL
+
+.c-partner-hero__panel {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 36px calc(var(--ph-slant) + 24px) 60px 24px;
+
+    // blue stroke layer
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+    }
+
+    &::before {
+        background: $color-blue;
+        clip-path: polygon(0 0, 100% 0, calc(100% - var(--ph-slant)) 100%, 0 100%);
+    }
+
+    // light fill, inset on the right + bottom so the stroke shows through
+    &::after {
+        background: $color-blue-light;
+        clip-path: polygon(
+            0 0,
+            calc(100% - var(--ph-stroke-x)) 0,
+            calc(100% - var(--ph-slant) - var(--ph-stroke-x)) calc(100% - var(--ph-stroke-y)),
+            0 calc(100% - var(--ph-stroke-y))
+        );
+    }
+
+    > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    @media(width >= $bp-medium) {
+        padding: 44px calc(var(--ph-slant) + 30px) 80px 36px;
+    }
+
+    @media(width >= $bp-large) {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 40px;
+        padding: 44px calc(var(--ph-slant) + 20px) 90px 36px;
+    }
+}
+
+.c-partner-hero__content {
+    max-width: 560px;
+}
+
+.c-partner-hero .c-partner-hero__eyebrow {
+    font-family: $font-primary;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: $color-blue;
+    margin: 0 0 22px 0;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba($color-plixer-dark, 0.25);
+}
+
+.c-partner-hero .c-partner-hero__heading {
+    font-family: $font-primary;
+    font-size: clamped(30px, 46px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: $color-blue;
+    margin: 0 0 20px 0;
+}
+
+.c-partner-hero__body {
+    font-family: $font-secondary;
+    font-size: 16px;
+    line-height: 1.9;
+    color: $color-plixer-dark;
+
+    p {
+        font-size: inherit;
+        line-height: inherit;
+        margin: 0 0 12px 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.c-partner-hero__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: -1; // logo above the text on mobile
+
+    img {
+        display: block;
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+    }
+
+    @media(width >= $bp-large) {
+        order: 0;
+
+        img {
+            max-width: 320px;
+        }
+    }
+}
+
+// ORANGE PARALLELOGRAMS - sit just under the slanted bottom corner
+
+.c-partner-hero__slashes {
+    display: none;
+
+    @media(width >= $bp-medium) {
+        position: absolute;
+        top: calc(100% + 10px);
+        right: calc(var(--ph-slant) + 4px);
+        display: flex;
+        gap: 8px;
+    }
+
+    span {
+        display: block;
+        width: 26px;
+        height: 18px;
+        background: $color-orange;
+        transform: skewX(-20deg);
+
+        @media(width >= $bp-large) {
+            width: 32px;
+            height: 22px;
+        }
+    }
+}
+
+// CALLOUT CARD - overlaps the bottom-left of the panel
+
+.c-partner-hero__callout {
+    position: relative;
+    z-index: 2;
+    margin: -36px 12px 0;
+    padding: 24px 22px 28px;
+    background: white;
+    box-shadow: 0 6px 24px rgba($color-plixer-dark, 0.15);
+
+    // blue corner flag, bottom right
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 24px;
+        height: 24px;
+        background: $color-blue;
+        clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    }
+
+    @media(width >= $bp-medium) {
+        width: 60%;
+        margin: -50px 0 0 36px;
+        padding: 28px 30px 32px;
+    }
+
+    @media(width >= $bp-large) {
+        width: 48%;
+        max-width: 560px;
+    }
+}
+
+.c-partner-hero .c-partner-hero__callout-text {
+    font-family: $font-primary;
+    font-size: clamped(18px, 22px);
+    font-weight: 700;
+    line-height: 1.25;
+    color: $color-blue;
+    margin: 0 0 24px 0;
+}
+
+.c-partner-hero__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.c-partner-hero__btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: $color-green-new;
+    color: white;
+    border-radius: 999px;
+    font-family: $font-secondary;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+
+    &:hover,
+    &:focus {
+        background: darken($color-green-new, 6%);
+        color: white;
+    }
+}

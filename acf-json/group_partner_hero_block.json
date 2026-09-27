@@ -1,0 +1,243 @@
+{
+    "key": "group_partner_hero_block",
+    "title": "Partner Hero Block",
+    "fields": [
+        {
+            "key": "field_partner_hero_tab_content",
+            "label": "Content",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_partner_hero_eyebrow",
+            "label": "Eyebrow",
+            "name": "partner_hero_eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "GIGAMON + PLIXER"
+        },
+        {
+            "key": "field_partner_hero_heading_level",
+            "label": "Heading Level",
+            "name": "partner_hero_heading_level",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Use H1 when this is the top of the page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "h1": "H1",
+                "h2": "H2"
+            },
+            "default_value": "h1",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0
+        },
+        {
+            "key": "field_partner_hero_heading",
+            "label": "Heading",
+            "name": "partner_hero_heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "Turn Network Visibility Into Faster Investigations"
+        },
+        {
+            "key": "field_partner_hero_body",
+            "label": "Body",
+            "name": "partner_hero_body",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_partner_hero_logo",
+            "label": "Partner Logo",
+            "name": "partner_hero_logo",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Shown on the right side of the panel. Transparent PNG or SVG works best.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
+            "key": "field_partner_hero_tab_cta",
+            "label": "Callout",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_partner_hero_callout",
+            "label": "Callout Text",
+            "name": "partner_hero_callout",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "rows": 3,
+            "new_lines": "",
+            "placeholder": "Gain visibility into users, devices, applications, and communications..."
+        },
+        {
+            "key": "field_partner_hero_btn1_text",
+            "label": "Button 1 Text",
+            "name": "partner_hero_btn1_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "Request a Demo",
+            "default_value": "Request a Demo"
+        },
+        {
+            "key": "field_partner_hero_btn1_popup",
+            "label": "Button 1 Opens Demo Popup",
+            "name": "partner_hero_btn1_popup",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1,
+            "ui": 1,
+            "message": ""
+        },
+        {
+            "key": "field_partner_hero_btn1_url",
+            "label": "Button 1 URL",
+            "name": "partner_hero_btn1_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_partner_hero_btn1_popup",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_partner_hero_btn2",
+            "label": "Button 2",
+            "name": "partner_hero_btn2",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "e.g. Download the Solution Brief",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/partner-hero"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}

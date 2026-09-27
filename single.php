@@ -68,61 +68,80 @@
             }
         }
         
-        if ($article_author) {
-            // Handle both object and ID return formats
-            $author_id = is_object($article_author) ? $article_author->ID : $article_author;
-            
-            // Get author details
-            $author_name = get_the_title($author_id);
-            $author_bio = get_field('bio', $author_id);
-            $author_job_title = get_field('job_title', $author_id);
-            $author_image = get_field('headshot', $author_id);
-            $author_linkedin = get_field('linkedin_url', $author_id);
-            
-            // Output the author card with schema
-            if ($author_name || $author_bio) {
-                ?>
-                <div class="c-author-card" itemscope itemtype="https://schema.org/Person">
+        // Collect author IDs - article_author may be a single value or an array (multi-select),
+        // plus the legacy article_author_2 co-author field. Handles both object and ID return formats.
+        $author_ids = array();
+        $authors = array_merge(
+            is_array($article_author) ? $article_author : array($article_author),
+            array(get_field('article_author_2'))
+        );
+        foreach ($authors as $author) {
+            $author_id = is_object($author) ? $author->ID : (int) $author;
+            if ($author_id && !in_array($author_id, $author_ids, true) && get_the_title($author_id)) {
+                $author_ids[] = $author_id;
+            }
+        }
+        
+        if ($author_ids) {
+            ?>
+            <section class="c-author-cards<?php echo count($author_ids) > 1 ? ' c-author-cards--multiple' : ''; ?>">
+                <h2 class="c-author-card__heading"><?php echo count($author_ids) > 1 ? 'About the Authors' : 'About the Author'; ?></h2>
+                
+                <div class="c-author-cards__grid">
+                <?php
+                foreach ($author_ids as $author_id) {
+                    // Get author details
+                    $author_name = get_the_title($author_id);
+                    $author_bio = get_field('bio', $author_id);
+                    $author_job_title = get_field('job_title', $author_id);
+                    $author_image = get_field('headshot', $author_id);
+                    $author_linkedin = get_field('linkedin_url', $author_id);
                     
-                    <div class="c-author-card__content">
-                        <?php if($author_image): ?>
-                            <div class="c-author-card__image">
-                                <?php echo wp_get_attachment_image($author_image, 'medium', false, array('itemprop' => 'image')); ?>
-                            </div>
-                        <?php endif; ?>
+                    // Output the author card with schema
+                    ?>
+                    <div class="c-author-card" itemscope itemtype="https://schema.org/Person">
                         
-                        <div class="c-author-card__info">
-                            <?php if ($author_name): ?>
-                                <h3 class="c-author-card__name" itemprop="name"><?php echo esc_html($author_name); ?></h3>
-                            <?php endif; ?>
-                            
-                            <?php if ($author_job_title): ?>
-                                <p class="c-author-card__title" itemprop="jobTitle"><?php echo esc_html($author_job_title); ?></p>
-                            <?php endif; ?>
-                            
-                            <?php if ($author_bio): ?>
-                                <div class="c-author-card__bio" itemprop="description">
-                                    <?php echo wp_kses_post($author_bio); ?>
+                        <div class="c-author-card__content">
+                            <?php if($author_image): ?>
+                                <div class="c-author-card__image">
+                                    <?php echo wp_get_attachment_image($author_image, 'medium', false, array('itemprop' => 'image')); ?>
                                 </div>
                             <?php endif; ?>
                             
-                            <?php if ($author_linkedin): ?>
-                                <a href="<?php echo esc_url($author_linkedin); ?>" 
-                                   class="c-author-card__linkedin" 
-                                   target="_blank" 
-                                   rel="noopener noreferrer"
-                                   itemprop="url">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                                    </svg>
-                                    Connect on LinkedIn
-                                </a>
-                            <?php endif; ?>
+                            <div class="c-author-card__info">
+                                <h3 class="c-author-card__name" itemprop="name"><?php echo esc_html($author_name); ?></h3>
+                                
+                                <?php if ($author_job_title): ?>
+                                    <p class="c-author-card__title" itemprop="jobTitle"><?php echo esc_html($author_job_title); ?></p>
+                                <?php endif; ?>
+                                
+                                <?php if ($author_bio): ?>
+                                    <div class="c-author-card__bio" itemprop="description">
+                                        <?php echo wp_kses_post($author_bio); ?>
+                                    </div>
+                                <?php endif; ?>
+                                
+                                <?php if ($author_linkedin): ?>
+                                    <a href="<?php echo esc_url($author_linkedin); ?>" 
+                                       class="c-author-card__linkedin" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       itemprop="url">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                        </svg>
+                                        Connect on LinkedIn
+                                    </a>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
+                    <?php
+                }
+                ?>
                 </div>
-                <?php
-            }
+            </section>
+            <?php
         }
         ?>
         

@@ -1,0 +1,20 @@
+{
+    "name": "partner-hero",
+    "title": "Partner Hero",
+    "description": "Partner/integration hero with angled panel, partner logo, and a CTA callout card.",
+    "icon": "groups",
+    "keywords": ["partner", "hero", "integration", "logo", "banner", "cta"],
+    "category": "myblocks",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "partner-hero.php"
+    },
+    "supports": {
+        "align": ["full", "wide"],
+        "anchor": true,
+        "html": false
+    },
+    "example": {
+        "attributes": {}
+    }
+}
